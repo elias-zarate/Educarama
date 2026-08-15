@@ -1,0 +1,6 @@
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.csproj.AssemblyReference.cache
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.AssemblyInfoInputs.cache
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.AssemblyInfo.cs
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.csproj.CoreCompileInputs.cache
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.sourcelink.json

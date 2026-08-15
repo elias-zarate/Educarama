@@ -1,0 +1,12 @@
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Repositorio.deps.json
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Repositorio.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Repositorio.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.AssemblyInfoInputs.cache
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.AssemblyInfo.cs
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.csproj.CoreCompileInputs.cache
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.sourcelink.json
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\refint\Repositorio.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\ref\Repositorio.dll

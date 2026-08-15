@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ApiEducaramaBackend/ApiEducaramaBackend.csproj" Id="8d5e5c08-9228-40ad-9b2b-32fda1d720d6" />
+  <Project Path="Aplicacion/Aplicacion.csproj" />
+  <Project Path="Datos/Datos.csproj" />
+  <Project Path="Dominio/Dominio.csproj" />
+  <Project Path="Repositorio/Repositorio.csproj" Id="ea3e7a4f-116a-43dc-b247-7a05a0176518" />
+</Solution>

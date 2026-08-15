@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Acciones\" />
+    <Folder Include="AsignacionRoles\" />
+    <Folder Include="Avisos\" />
+    <Folder Include="Competencias\" />
+    <Folder Include="Desarrolla\" />
+    <Folder Include="Documentos\" />
+    <Folder Include="EsFamilia\" />
+    <Folder Include="Familiares\" />
+    <Folder Include="Grupos\" />
+    <Folder Include="Senderos\" />
+    <Folder Include="TipoAccion\" />
+    <Folder Include="Roles\" />
+    <Folder Include="Personas\" />
+  </ItemGroup>
+
+</Project>

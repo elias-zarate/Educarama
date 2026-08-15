@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\protagonistas\\casosdeuso\\cambiarramaprotagonistausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\protagonistas\\casosdeuso\\cambiarramaprotagonistausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\protagonistas\\dtos\\cambiarramaprotagonistadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\protagonistas\\dtos\\cambiarramaprotagonistadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\patrullas\\casosdeuso\\obtenerpatrullasporramausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\patrullas\\casosdeuso\\obtenerpatrullasporramausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\patrullas\\mappers\\patrullaentitytodtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\patrullas\\mappers\\patrullaentitytodtomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CambiarRamaProtagonistaUseCase.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Protagonistas\\CasosDeUso\\CambiarRamaProtagonistaUseCase.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\Protagonistas\\CasosDeUso\\CambiarRamaProtagonistaUseCase.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Protagonistas\\CasosDeUso\\CambiarRamaProtagonistaUseCase.cs",
+              "RelativeToolTip": "Aplicacion\\Protagonistas\\CasosDeUso\\CambiarRamaProtagonistaUseCase.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T23:26:33.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CambiarRamaProtagonistaDTO.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Protagonistas\\DTOs\\CambiarRamaProtagonistaDTO.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\Protagonistas\\DTOs\\CambiarRamaProtagonistaDTO.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Protagonistas\\DTOs\\CambiarRamaProtagonistaDTO.cs",
+              "RelativeToolTip": "Aplicacion\\Protagonistas\\DTOs\\CambiarRamaProtagonistaDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T23:25:37.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ObtenerPatrullasPorRamaUseCase.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorRamaUseCase.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorRamaUseCase.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorRamaUseCase.cs",
+              "RelativeToolTip": "Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorRamaUseCase.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwBsAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T23:15:38.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PatrullaEntityToDtoMapper.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\Mappers\\PatrullaEntityToDtoMapper.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\Patrullas\\Mappers\\PatrullaEntityToDtoMapper.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\Mappers\\PatrullaEntityToDtoMapper.cs",
+              "RelativeToolTip": "Aplicacion\\Patrullas\\Mappers\\PatrullaEntityToDtoMapper.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAYwBQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-15T23:11:34.602Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

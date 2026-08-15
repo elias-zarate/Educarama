@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EsFamiliaEntity.cs" />
+    <Compile Remove="FamiliarEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="EsFamiliaEntity.cs" />
+    <None Include="FamiliarEntity.cs" />
+  </ItemGroup>
+
+</Project>
