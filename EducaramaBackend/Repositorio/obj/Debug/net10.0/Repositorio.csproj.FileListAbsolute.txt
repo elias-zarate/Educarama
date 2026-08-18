@@ -10,3 +10,11 @@ C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes I
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\refint\Repositorio.dll
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.pdb
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\ref\Repositorio.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Repositorio.csproj.AssemblyReference.cache
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Aplicacion.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Datos.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Dominio.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Aplicacion.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Datos.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\bin\Debug\net10.0\Dominio.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Repositorio\obj\Debug\net10.0\Reposito.F4C96B80.Up2Date

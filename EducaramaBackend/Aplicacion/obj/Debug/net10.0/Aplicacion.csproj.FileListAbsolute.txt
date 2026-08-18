@@ -4,3 +4,13 @@ C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes I
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.AssemblyInfo.cs
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.csproj.CoreCompileInputs.cache
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.sourcelink.json
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\bin\Debug\net10.0\Aplicacion.deps.json
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\bin\Debug\net10.0\Aplicacion.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\bin\Debug\net10.0\Aplicacion.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\bin\Debug\net10.0\Dominio.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\bin\Debug\net10.0\Dominio.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.csproj.Up2Date
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\refint\Aplicacion.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\Aplicacion.pdb
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Aplicacion\obj\Debug\net10.0\ref\Aplicacion.dll

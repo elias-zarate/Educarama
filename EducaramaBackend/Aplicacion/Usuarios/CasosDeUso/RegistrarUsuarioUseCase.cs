@@ -43,7 +43,7 @@ public class RegistrarUsuarioUseCase : ICrearUseCase<RegistroUsuarioDTO>
         var asignacion = _asignacionMapper.Map(dto);
 
         // 3. Le pasamos el ID del usuario recién creado
-        asignacion.IdUsuario = usuario.Id;
+       // asignacion.IdUsuario = usuario.Id;
 
         await _asignacionRepositorio.AgregarAsync(asignacion);
     }

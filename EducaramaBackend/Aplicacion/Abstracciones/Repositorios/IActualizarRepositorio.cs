@@ -2,5 +2,5 @@
 
 public interface IActualizarRepositorio<TEntity> where TEntity : class
 {
-    Task ActualizarAsync(TEntity entidad, int id);
+    Task ActualizarAsync(TEntity entidad);
 }

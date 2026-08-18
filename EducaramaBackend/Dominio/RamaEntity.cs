@@ -23,6 +23,6 @@ public class RamaEntity
         }
     }
 
-    public int IdGrupo { get; set; }
-    public int IdRamaVinculada { get; set; }
+    public int? IdGrupo { get; set; }
+    public int IdCategoriaRama{ get; set; }
 }

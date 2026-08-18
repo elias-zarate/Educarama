@@ -43,7 +43,7 @@ public class ActualizarPerfilProtagonistaUseCase : IActualizarUseCase<PerfilProt
             IdUsuario = dto.IdUsuario
         };
 
-        await _personaRepositorio.ActualizarAsync(persona, persona.Id);
-        await _protagonistaRepositorio.ActualizarAsync(protagonista, protagonista.Id);
+        await _personaRepositorio.ActualizarAsync(persona);
+        await _protagonistaRepositorio.ActualizarAsync(protagonista);
     }
 }

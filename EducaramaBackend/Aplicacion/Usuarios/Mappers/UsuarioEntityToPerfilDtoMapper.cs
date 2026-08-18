@@ -17,8 +17,6 @@ public class UsuarioEntityToPerfilDtoMapper : IMapper<UsuarioEntity, PerfilUsuar
         
         return new PerfilUsuarioDTO
         {
-            IdUsuario = entidad.Id,
-            IdAsignacionRol = asignacion.Id,
 
             Nombre = entidad.Nombre,
             Email = entidad.Email,

@@ -33,6 +33,6 @@ public class AsignarPatrullaProtagonistaUseCase : IActualizarUseCase<AsignarPatr
 
         entidad.IdPatrulla = dto.IdPatrulla;
 
-        await _actualizarRepositorio.ActualizarAsync(entidad, id);
+        await _actualizarRepositorio.ActualizarAsync(entidad);
     }
 }

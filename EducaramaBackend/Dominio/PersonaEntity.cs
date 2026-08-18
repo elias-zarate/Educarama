@@ -2,7 +2,7 @@
 
 public class PersonaEntity
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     public int Dni
     {
@@ -43,12 +43,12 @@ public class PersonaEntity
         }
     }
 
-    public DateOnly? FechaNacimiento
+    public DateOnly FechaNacimiento
     {
         get => field;
         set
         {
-            if (value.HasValue && value.Value > DateOnly.FromDateTime(DateTime.Today))
+            if (value > DateOnly.FromDateTime(DateTime.Today))
             {
                 throw new ArgumentException("La fecha de nacimiento no puede ser una fecha futura.", nameof(value));
             }

@@ -2,7 +2,7 @@
 
 public class ProtagonistaEntity
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
     public bool? Promesa { get; set; }
     public int IdPersona { get; set; }
     public int IdRama { get; set; }

@@ -10,3 +10,6 @@ C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes I
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Datos\obj\Debug\net10.0\refint\Datos.dll
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Datos\obj\Debug\net10.0\Datos.pdb
 C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Datos\obj\Debug\net10.0\ref\Datos.dll
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Datos\bin\Debug\net10.0\Datos.runtimeconfig.json
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Datos\obj\Debug\net10.0\Datos.csproj.AssemblyReference.cache
+C:\Tecnicatura En Desarrollo De Software\2do año\Practicas Profesionalizantes II\Educarama\EducaramaBackend\Datos\obj\Debug\net10.0\Datos.genruntimeconfig.cache

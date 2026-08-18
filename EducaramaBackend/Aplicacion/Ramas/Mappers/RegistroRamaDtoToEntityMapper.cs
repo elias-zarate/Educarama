@@ -19,7 +19,7 @@ public class RegistroRamaDtoToEntityMapper : IMapper<RegistroRamaDTO, RamaEntity
         {
             Nombre = dto.Nombre,
             IdGrupo = dto.IdGrupo,
-            IdRamaVinculada = dto.IdRamaVinculada
+            IdCategoriaRama = dto.IdRamaVinculada
         };
     }
 }

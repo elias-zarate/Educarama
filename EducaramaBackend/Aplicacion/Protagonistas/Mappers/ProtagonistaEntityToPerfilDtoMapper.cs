@@ -18,7 +18,7 @@ public class ProtagonistaEntityToPerfilDtoMapper : IMapper<ProtagonistaEntity, P
 
         return new PerfilProtagonistaDTO
         {
-            IdProtagonista = entidad.Id,
+            //IdProtagonista = entidad.Id,
             IdPersona = entidad.IdPersona,
 
             // Leemos los datos de la variable segura 'persona'

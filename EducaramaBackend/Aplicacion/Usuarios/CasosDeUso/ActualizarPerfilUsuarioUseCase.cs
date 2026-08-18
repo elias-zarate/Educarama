@@ -41,7 +41,7 @@ public class ActualizarPerfilUsuarioUseCase : IActualizarUseCase<PerfilUsuarioDT
             IdRama = dto.IdRama
         };
 
-        await _usuarioRepositorio.ActualizarAsync(usuario, usuario.Id);
-        await _asignacionRepositorio.ActualizarAsync(asignacion, asignacion.Id);
+        await _usuarioRepositorio.ActualizarAsync(usuario);
+        await _asignacionRepositorio.ActualizarAsync(asignacion);
     }
 }

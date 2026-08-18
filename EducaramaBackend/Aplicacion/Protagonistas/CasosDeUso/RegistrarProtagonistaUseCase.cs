@@ -35,7 +35,7 @@ public class RegistrarProtagonistaUseCase : ICrearUseCase<RegistroProtagonistaDT
         await _personaRepositorio.AgregarAsync(persona);
 
         var protagonista = _protagonistaMapper.Map(dto);
-        protagonista.IdPersona = persona.Id;
+        //protagonista.IdPersona = persona.Id;
 
         await _protagonistaRepositorio.AgregarAsync(protagonista);
     }

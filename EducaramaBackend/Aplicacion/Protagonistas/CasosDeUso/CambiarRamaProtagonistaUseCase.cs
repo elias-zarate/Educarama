@@ -34,6 +34,6 @@ public class CambiarRamaProtagonistaUseCase : IActualizarUseCase<CambiarRamaProt
         entidad.IdRama = dto.IdRama;
         entidad.IdPatrulla = null;
 
-        await _repositorioActualizar.ActualizarAsync(entidad, id);
+        await _repositorioActualizar.ActualizarAsync(entidad);
     }
 }
