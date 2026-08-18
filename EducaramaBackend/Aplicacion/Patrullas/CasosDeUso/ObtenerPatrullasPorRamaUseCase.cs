@@ -1,4 +1,5 @@
 ﻿using Aplicacion.Abstracciones;
+using Aplicacion.Abstracciones.CasosDeUso;
 using Aplicacion.Abstracciones.Repositorios;
 using Aplicacion.Patrullas.DTOs;
 using Dominio;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace Aplicacion.Patrullas.CasosDeUso;
 
-public class ObtenerPatrullasPorRamaUseCase
+public class ObtenerPatrullasPorRamaUseCase : ILeerPatrullasPorRamaUseCase
 {
     private readonly ILeerPatrullasPorRamaRepositorio _repositorio;
     private readonly IMapper<PatrullaEntity, PatrullaDTO> _mapper;
@@ -21,7 +22,7 @@ public class ObtenerPatrullasPorRamaUseCase
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<PatrullaDTO>> ObtenerPatrullasAsync(int idRama)
+    public async Task<IEnumerable<PatrullaDTO>> ObtenerPatrullasPorRamaAsync(int idRama)
     {
         var entidades = await _repositorio.ObtenerPatrullasPorRamaAsync(idRama);
 

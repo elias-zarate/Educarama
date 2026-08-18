@@ -17,7 +17,9 @@ public class PatrullaEntityToDtoMapper : IMapper<PatrullaEntity, PatrullaDTO>
         return new PatrullaDTO
         {
             Id = entidad.Id,
-            Nombre = entidad.Nombre
+            Nombre = entidad.Nombre,
+            IdRama = entidad.IdRama
+
         };
     }
 }
