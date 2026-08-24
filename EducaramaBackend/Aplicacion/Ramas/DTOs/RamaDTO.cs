@@ -6,4 +6,5 @@ public class RamaDTO
     public required string Nombre { get; set; }
     public int? IdGrupo { get; set; }
     public int IdCategoriaRama { get; set; }
+    public string? CodigoAcceso { get; set; } // <-- Agregado
 }

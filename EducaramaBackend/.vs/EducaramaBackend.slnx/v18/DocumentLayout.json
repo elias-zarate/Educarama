@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\controladores\\obtencionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\controladores\\obtencionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EA3E7A4F-116A-43DC-B247-7A05A0176518}|Repositorio\\Repositorio.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\repositorio\\patrullarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA3E7A4F-116A-43DC-B247-7A05A0176518}|Repositorio\\Repositorio.csproj|solutionrelative:repositorio\\patrullarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\controladores\\cumplimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\controladores\\cumplimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\controladores\\protagonistascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\controladores\\protagonistascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EA3E7A4F-116A-43DC-B247-7A05A0176518}|Repositorio\\Repositorio.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\repositorio\\protagonistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA3E7A4F-116A-43DC-B247-7A05A0176518}|Repositorio\\Repositorio.csproj|solutionrelative:repositorio\\protagonistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,66 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ObtencionesController.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\ObtencionesController.cs",
-              "RelativeDocumentMoniker": "ApiEducaramaBackend\\Controladores\\ObtencionesController.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\ObtencionesController.cs",
-              "RelativeToolTip": "ApiEducaramaBackend\\Controladores\\ObtencionesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Title": "ProtagonistaRepositorio.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Repositorio\\ProtagonistaRepositorio.cs",
+              "RelativeDocumentMoniker": "Repositorio\\ProtagonistaRepositorio.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Repositorio\\ProtagonistaRepositorio.cs",
+              "RelativeToolTip": "Repositorio\\ProtagonistaRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T23:22:04.753Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CumplimientosController.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\CumplimientosController.cs",
-              "RelativeDocumentMoniker": "ApiEducaramaBackend\\Controladores\\CumplimientosController.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\CumplimientosController.cs",
-              "RelativeToolTip": "ApiEducaramaBackend\\Controladores\\CumplimientosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T23:21:44.904Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProtagonistasController.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\ProtagonistasController.cs",
-              "RelativeDocumentMoniker": "ApiEducaramaBackend\\Controladores\\ProtagonistasController.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\ProtagonistasController.cs",
-              "RelativeToolTip": "ApiEducaramaBackend\\Controladores\\ProtagonistasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T23:18:35.673Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PatrullaRepositorio.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Repositorio\\PatrullaRepositorio.cs",
-              "RelativeDocumentMoniker": "Repositorio\\PatrullaRepositorio.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Repositorio\\PatrullaRepositorio.cs",
-              "RelativeToolTip": "Repositorio\\PatrullaRepositorio.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAA0wB0AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T23:10:12.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Program.cs",
-              "RelativeDocumentMoniker": "ApiEducaramaBackend\\Program.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Program.cs",
-              "RelativeToolTip": "ApiEducaramaBackend\\Program.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAwFoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T23:06:19.606Z",
+              "WhenOpened": "2026-08-23T23:53:42.67Z",
               "EditorCaption": ""
             }
           ]

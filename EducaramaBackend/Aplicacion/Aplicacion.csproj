@@ -11,10 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Acciones\" />
     <Folder Include="AsignacionRoles\" />
     <Folder Include="Avisos\" />
-    <Folder Include="Competencias\" />
     <Folder Include="Desarrolla\" />
     <Folder Include="Documentos\" />
     <Folder Include="EsFamilia\" />

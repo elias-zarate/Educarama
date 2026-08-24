@@ -104,3 +104,160 @@ El proyecto está construido bajo los principios de **Clean Architecture (Arquit
 * **Respuestas de Error:** 
   * `404 Not Found`
   * `500 Internal Server Error`
+
+---
+
+### 🏕️ Módulo de Ramas (`/api/ramas`)
+
+#### Crear Rama
+* **Ruta:** `POST /api/ramas`
+* **Body (JSON):**
+  ```json
+  {
+    "nombre": "Unidades Scouts",
+    "idGrupo": 1,
+    "idCategoriaRama": 2
+  }
+  ```
+* **Respuestas Exitosas:** 
+  * `201 Created`
+* **Respuestas de Error:** 
+  * `400 Bad Request`
+  * `500 Internal Server Error`
+
+#### Obtener Todas las Ramas
+* **Ruta:** `GET /api/ramas`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve una lista de `RamaDTO`)
+
+#### Obtener Rama por ID
+* **Ruta:** `GET /api/ramas/{id}`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve `RamaDTO`)
+* **Respuestas de Error:** 
+  * `404 Not Found`
+
+---
+
+### 🛡️ Módulo de Patrullas (`/api/patrullas`)
+
+#### Obtener Todas las Patrullas
+* **Ruta:** `GET /api/patrullas`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve una lista de `PatrullaDTO`)
+
+#### Obtener Patrulla por ID
+* **Ruta:** `GET /api/patrullas/{id}`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve `PatrullaDTO`)
+* **Respuestas de Error:** 
+  * `404 Not Found`
+
+#### Obtener Patrullas por Rama
+* **Ruta:** `GET /api/patrullas/por-rama/{idRama}`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve las patrullas filtradas por el ID de la rama)
+
+---
+
+### ⚜️ Módulo de Protagonistas (`/api/protagonistas`)
+
+#### Registrar Protagonista (Scout)
+* **Ruta:** `POST /api/protagonistas`
+* **Body (JSON):**
+  ```json
+  {
+    "dni": 40123456,
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "fechaNacimiento": "2010-05-15",
+    "promesa": false,
+    "idRama": 2,
+    "idPatrulla": 1,
+    "idUsuario": 1
+  }
+  ```
+* **Respuestas Exitosas:** 
+  * `201 Created`
+* **Respuestas de Error:** 
+  * `400 Bad Request` (Ej: Fechas futuras o DNI inválido)
+
+#### Obtener Todos los Protagonistas
+* **Ruta:** `GET /api/protagonistas`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve lista de `PerfilProtagonistaDTO`)
+
+#### Obtener Protagonista por ID
+* **Ruta:** `GET /api/protagonistas/{id}`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve `PerfilProtagonistaDTO`)
+* **Respuestas de Error:** 
+  * `404 Not Found`
+
+#### Obtener Protagonistas por Rama
+* **Ruta:** `GET /api/protagonistas/por-rama/{idRama}`
+* **Respuestas Exitosas:** 
+  * `200 OK` (Devuelve listado de protagonistas filtrados por su rama)
+
+#### Actualizar Perfil de Protagonista
+* **Ruta:** `PUT /api/protagonistas/{id}`
+* **Respuestas Exitosas:** 
+  * `200 OK`
+
+#### Eliminar Protagonista
+* **Ruta:** `DELETE /api/protagonistas/{id}`
+* **Respuestas Exitosas:** 
+  * `200 OK`
+
+#### Asignar Patrulla a Protagonista
+* **Ruta:** `PATCH /api/protagonistas/{id}/patrulla`
+* **Body (JSON):**
+  ```json
+  {
+    "idPatrulla": 2
+  }
+  ```
+* **Respuestas Exitosas:** 
+  * `200 OK`
+
+#### Cambiar de Rama a Protagonista
+* **Ruta:** `PATCH /api/protagonistas/{id}/rama`
+* **Nota:** Al cambiar de rama, desasigna automáticamente la patrulla anterior.
+* **Body (JSON):**
+  ```json
+  {
+    "idRama": 3
+  }
+  ```
+* **Respuestas Exitosas:** 
+  * `200 OK`
+
+---
+
+### 📈 Módulo de Progreso e Insignias
+
+#### Registrar Cumplimiento de Acción (`/api/cumplimientos`)
+* **Ruta:** `POST /api/cumplimientos`
+* **Body (JSON):**
+  ```json
+  {
+    "idProtagonista": 1,
+    "idAccion": 5,
+    "accionCumplida": true
+  }
+  ```
+* **Respuestas Exitosas:** 
+  * `201 Created`
+
+#### Otorgar Insignia (`/api/obtenciones`)
+* **Ruta:** `POST /api/obtenciones`
+* **Body (JSON):**
+  ```json
+  {
+    "idProtagonista": 1,
+    "idInsignia": 2,
+    "fecha": "2026-06-01"
+  }
+  ```
+* **Respuestas Exitosas:** 
+  * `201 Created`

@@ -8,6 +8,7 @@ public partial class Rama
     public int Id { get; set; }
 
     public string Nombre { get; set; } = null!;
+    public string? CodigoAcceso { get; set; }
 
     public int IdGrupo { get; set; }
 

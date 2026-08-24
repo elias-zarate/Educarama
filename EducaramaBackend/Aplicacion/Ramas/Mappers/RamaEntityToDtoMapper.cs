@@ -12,7 +12,8 @@ public static class RamaEntityToDtoMapper
             Id = entity.Id,
             Nombre = entity.Nombre,
             IdGrupo = entity.IdGrupo,
-            IdCategoriaRama = entity.IdCategoriaRama
+            IdCategoriaRama = entity.IdCategoriaRama,
+            CodigoAcceso = entity.CodigoAcceso // <-- Agregado
         };
     }
 }

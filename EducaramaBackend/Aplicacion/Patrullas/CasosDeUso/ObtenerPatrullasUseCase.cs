@@ -3,16 +3,13 @@ using Aplicacion.Abstracciones.CasosDeUso;
 using Aplicacion.Abstracciones.Repositorios;
 using Aplicacion.Patrullas.DTOs;
 using Dominio;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Aplicacion.Patrullas.CasosDeUso;
 
 public class ObtenerPatrullasUseCase : ILeerUseCase<PatrullaDTO>
 {
-    ILeerRepositorio<PatrullaEntity> _repositorio;
-    IMapper<PatrullaEntity, PatrullaDTO> _mapper;
+    private readonly ILeerRepositorio<PatrullaEntity> _repositorio;
+    private readonly IMapper<PatrullaEntity, PatrullaDTO> _mapper;
 
     public ObtenerPatrullasUseCase(ILeerRepositorio<PatrullaEntity> repositorio,
         IMapper<PatrullaEntity, PatrullaDTO> mapper)
@@ -21,14 +18,10 @@ public class ObtenerPatrullasUseCase : ILeerUseCase<PatrullaDTO>
         _mapper = mapper;
     }
 
-    public async Task<PatrullaDTO> ObtenerPorIdAsync(int id)
+    public async Task<PatrullaDTO?> ObtenerPorIdAsync(int id) // <-- Agregado el ?
     {
         var patrullaEntity = await _repositorio.ObtenerPorIdAsync(id);
-        if (patrullaEntity is null)
-            throw new ArgumentException($"No se encontró la patrulla con id {id}");
-
-        return _mapper.Map(patrullaEntity);
-
+        return patrullaEntity != null ? _mapper.Map(patrullaEntity) : null;
     }
 
     public async Task<IEnumerable<PatrullaDTO>> ObtenerTodosAsync()
@@ -37,6 +30,3 @@ public class ObtenerPatrullasUseCase : ILeerUseCase<PatrullaDTO>
         return patrullasEntities.Select(_mapper.Map);
     }
 }
-
-    
-

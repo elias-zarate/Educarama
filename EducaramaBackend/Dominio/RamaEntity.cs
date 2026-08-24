@@ -22,6 +22,18 @@ public class RamaEntity
             field = value;
         }
     }
+    public string? CodigoAcceso
+    {
+        get => field;
+        set
+        {
+            if (!string.IsNullOrEmpty(value) && value.Length > 20)
+            {
+                throw new ArgumentException("El código de acceso no puede superar los 20 caracteres.", nameof(value));
+            }
+            field = value;
+        }
+    }
 
     public int? IdGrupo { get; set; }
     public int IdCategoriaRama{ get; set; }

@@ -1,52 +1,48 @@
 ﻿using Aplicacion.Abstracciones.CasosDeUso;
+using Aplicacion.Ramas.CasosDeUso;
 using Aplicacion.Ramas.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiEducaramaBackend.Controladores;
+namespace ApiEducaramaBackend.Controllers;
 
+[Route("api/[controller]")]
 [ApiController]
-[Route("api/ramas")]
 public class RamasController : ControllerBase
 {
-    private readonly ILeerUseCase<RamaDTO> _leerUseCase;
-    private readonly ICrearUseCase<RegistroRamaDTO> _crearUseCase;
+    private readonly GenerarCodigoAccesoRamaUseCase _generarCodigoUseCase;
+    private readonly ILeerUseCase<RamaDTO> _leerRamasUseCase;
 
-    public RamasController(ILeerUseCase<RamaDTO> leerUseCase, 
-        ICrearUseCase<RegistroRamaDTO> crearUseCase)
+    public RamasController(
+        GenerarCodigoAccesoRamaUseCase generarCodigoUseCase,
+        ILeerUseCase<RamaDTO> leerRamasUseCase)
     {
-        _leerUseCase = leerUseCase;
-        _crearUseCase = crearUseCase;
+        _generarCodigoUseCase = generarCodigoUseCase;
+        _leerRamasUseCase = leerRamasUseCase;
     }
 
+    // Endpoint GET que estaba buscando tu Javascript
     [HttpGet]
     public async Task<IActionResult> Get()
     {
         try
         {
-            var ramas = await _leerUseCase.ObtenerTodosAsync();
+            var ramas = await _leerRamasUseCase.ObtenerTodosAsync();
             return Ok(ramas);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new
-            {
-                error = "Error interno del servidor",
-                detalle = ex.Message
-            });
+            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
         }
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> Get(int id)
+    // El endpoint POST que ya tenías
+    [HttpPost("{id}/generar-codigo")]
+    public async Task<IActionResult> GenerarCodigoAcceso(int id)
     {
         try
         {
-            var rama = await _leerUseCase.ObtenerPorIdAsync(id);
-            if (rama == null)
-            {
-                return NotFound();
-            }
-            return Ok(rama);
+            string codigo = await _generarCodigoUseCase.GenerarCodigoAsync(id);
+            return Ok(new { mensaje = "Código generado con éxito", codigoAcceso = codigo });
         }
         catch (KeyNotFoundException ex)
         {
@@ -54,33 +50,7 @@ public class RamasController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, new
-            {
-                error = "Error interno del servidor",
-                detalle = ex.Message
-            });
-        }
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Post([FromBody] RegistroRamaDTO registroRama)
-    {
-        try
-        {
-            await _crearUseCase.AgregarAsync(registroRama);
-            return StatusCode(201, new { mensaje = "Rama creada exitosamente" });
-        }
-        catch (ArgumentException ex)
-        {
             return BadRequest(new { error = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new
-            {
-                error = "Error interno del servidor",
-                detalle = ex.Message
-            });
         }
     }
 }

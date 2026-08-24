@@ -11,22 +11,17 @@ public class ProtagonistaEntityToPerfilDtoMapper : IMapper<ProtagonistaEntity, P
     {
         if (entidad == null) throw new ArgumentNullException(nameof(entidad));
 
-        // Validación defensiva: Si entidad.Persona viene nulo, creamos una vacía 
-        // temporalmente para que no tire error al intentar leer sus propiedades.
-        // (En la vida real, el Repositorio debería encargarse de traerla usando .Include())
-        var persona = entidad.Persona ?? new PersonaEntity { Dni = 0 };
+        // Si por alguna razón viene nula, evitamos usar Dni = 0 para no romper el dominio
+        var persona = entidad.Persona ?? new PersonaEntity { Dni = 1, Nombre = "Sin nombre", Apellido = "Sin apellido" };
 
         return new PerfilProtagonistaDTO
         {
-            //IdProtagonista = entidad.Id,
+            IdProtagonista = entidad.Id ?? 0,
             IdPersona = entidad.IdPersona,
-
-            // Leemos los datos de la variable segura 'persona'
             Dni = persona.Dni,
             Nombre = persona.Nombre,
             Apellido = persona.Apellido,
             FechaNacimiento = persona.FechaNacimiento,
-
             Promesa = entidad.Promesa,
             IdRama = entidad.IdRama,
             IdPatrulla = entidad.IdPatrulla,

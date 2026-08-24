@@ -8,20 +8,14 @@ using System.Text;
 
 namespace Repositorio;
 
-public class RamaRepositorio : ICrearRepositorio<RamaEntity>, 
-    ILeerRepositorio<RamaEntity>
+public class RamaRepositorio : ILeerRepositorio<RamaEntity>, IActualizarRepositorio<RamaEntity>
 {
     private readonly EducaramaContext _context;
     public RamaRepositorio(EducaramaContext context)
     {
         _context = context;
     }
-    public async Task AgregarAsync(RamaEntity entidad)
-    {
-        var rama = MapToModel(entidad);
-        await _context.Ramas.AddAsync(rama);
-        await _context.SaveChangesAsync();
-    }
+
     public async Task<RamaEntity?> ObtenerPorIdAsync(int id)
     {
         var rama = await _context.Ramas.FindAsync(id);
@@ -31,11 +25,23 @@ public class RamaRepositorio : ICrearRepositorio<RamaEntity>,
 
         return MapToEntity(rama);
     }
+
     public async Task<IEnumerable<RamaEntity>> ObtenerTodosAsync()
     {
         var ramas = await _context.Ramas.ToListAsync();
         return ramas.Select(MapToEntity);
     }
+
+    public async Task ActualizarAsync(RamaEntity entidad)
+    {
+        var rama = await _context.Ramas.FindAsync(entidad.Id);
+        if (rama is null)
+            throw new KeyNotFoundException($"No se encontró la rama con Id {entidad.Id}.");
+
+        rama.CodigoAcceso = entidad.CodigoAcceso;
+        await _context.SaveChangesAsync();
+    }
+
     #region
     private RamaEntity MapToEntity(Rama rama)
     {
@@ -45,15 +51,6 @@ public class RamaRepositorio : ICrearRepositorio<RamaEntity>,
             Nombre = rama.Nombre,
             IdGrupo = rama.IdGrupo,
             IdCategoriaRama= rama.IdCategoriaRama
-        };
-    }
-    private Rama MapToModel(RamaEntity ramaEntity)
-    {
-        return new Rama
-        {
-            Id = ramaEntity.Id,
-            Nombre = ramaEntity.Nombre,
-            IdCategoriaRama = ramaEntity.IdCategoriaRama
         };
     }
     #endregion

@@ -15,10 +15,10 @@ public class ObtenerRamasUseCase : ILeerUseCase<RamaDTO>
         _repositorio = repositorio;
     }
 
-    public async Task<RamaDTO> ObtenerPorIdAsync(int id)
+    public async Task<RamaDTO?> ObtenerPorIdAsync(int id) // <-- Agregado el ?
     {
         var entity = await _repositorio.ObtenerPorIdAsync(id);
-        return RamaEntityToDtoMapper.ToDto(entity!);
+        return entity != null ? RamaEntityToDtoMapper.ToDto(entity) : null;
     }
 
     public async Task<IEnumerable<RamaDTO>> ObtenerTodosAsync()

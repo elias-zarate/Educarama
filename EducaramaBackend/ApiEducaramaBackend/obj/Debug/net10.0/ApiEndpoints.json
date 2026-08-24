@@ -1,0 +1,386 @@
+[
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.AccionesController",
+    "Method": "Get",
+    "RelativePath": "api/acciones",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.AccionesController",
+    "Method": "Get",
+    "RelativePath": "api/acciones/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.CategoriaRamasController",
+    "Method": "Get",
+    "RelativePath": "api/categoria-ramas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.CategoriaRamasController",
+    "Method": "Get",
+    "RelativePath": "api/categoria-ramas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.CompetenciasController",
+    "Method": "Get",
+    "RelativePath": "api/competencias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.CompetenciasController",
+    "Method": "Get",
+    "RelativePath": "api/competencias/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.CumplimientosController",
+    "Method": "Post",
+    "RelativePath": "api/cumplimientos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Aplicacion.Cumple.DTOs.CumpleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ObtencionesController",
+    "Method": "Post",
+    "RelativePath": "api/obtenciones",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Aplicacion.Insignias.DTOs.ObtenerInsigniaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.PatrullasController",
+    "Method": "Get",
+    "RelativePath": "api/patrullas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.PatrullasController",
+    "Method": "Get",
+    "RelativePath": "api/patrullas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.PatrullasController",
+    "Method": "GetPorRama",
+    "RelativePath": "api/patrullas/por-rama/{idRama}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRama",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "Get",
+    "RelativePath": "api/protagonistas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "Post",
+    "RelativePath": "api/protagonistas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Aplicacion.Protagonistas.DTOs.RegistroProtagonistaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "Get",
+    "RelativePath": "api/protagonistas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "Put",
+    "RelativePath": "api/protagonistas/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Aplicacion.Protagonistas.DTOs.PerfilProtagonistaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "Delete",
+    "RelativePath": "api/protagonistas/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "PatchPatrulla",
+    "RelativePath": "api/protagonistas/{id}/patrulla",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Aplicacion.Protagonistas.DTOs.AsignarPatrullaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "PatchRama",
+    "RelativePath": "api/protagonistas/{id}/rama",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Aplicacion.Protagonistas.DTOs.CambiarRamaProtagonistaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.ProtagonistasController",
+    "Method": "GetPorRama",
+    "RelativePath": "api/protagonistas/por-rama/{idRama}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRama",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controllers.RamasController",
+    "Method": "Get",
+    "RelativePath": "api/Ramas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controllers.RamasController",
+    "Method": "GenerarCodigoAcceso",
+    "RelativePath": "api/Ramas/{id}/generar-codigo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.UsuariosController",
+    "Method": "Post",
+    "RelativePath": "api/usuarios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registroUsuario",
+        "Type": "Aplicacion.Usuarios.DTOs.RegistroUsuarioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.UsuariosController",
+    "Method": "Get",
+    "RelativePath": "api/usuarios/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.UsuariosController",
+    "Method": "Put",
+    "RelativePath": "api/usuarios/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "perfilUsuarioDto",
+        "Type": "Aplicacion.Usuarios.DTOs.PerfilUsuarioDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiEducaramaBackend.Controladores.UsuariosController",
+    "Method": "Delete",
+    "RelativePath": "api/usuarios/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
