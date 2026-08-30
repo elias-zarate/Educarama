@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Abstracciones.Repositorios;
 using Datos.EntidadesDb;
 using Dominio;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Text;
 namespace Repositorio;
 
 public class AsignacionRolRepositorio : ICrearRepositorio<AsignacionRolEntity>,
-    IActualizarRepositorio<AsignacionRolEntity>
+    IActualizarRepositorio<AsignacionRolEntity>, IAsignarGrupoUsuarioRepositorio
 {
     private readonly EducaramaContext _context;
 
@@ -45,6 +46,19 @@ public class AsignacionRolRepositorio : ICrearRepositorio<AsignacionRolEntity>,
         await _context.SaveChangesAsync();
     }
 
+
+    public async Task AsignarRolYGrupoAsync(int idUsuario, int idGrupo, int idRol)
+    {
+        var asignacion = await _context.AsignacionesRol.FirstOrDefaultAsync(a => a.IdUsuario == idUsuario);
+        if (asignacion != null)
+        {
+            asignacion.IdGrupo = idGrupo;
+            asignacion.IdRol = idRol; // Supongamos que 2 es "Jefe de Grupo"
+            _context.AsignacionesRol.Update(asignacion);
+            await _context.SaveChangesAsync();
+        }
+    }
+
     #region
     private static AsignacionRol MapTomodel(AsignacionRolEntity asignacionRolEntity)
     {
@@ -57,6 +71,8 @@ public class AsignacionRolRepositorio : ICrearRepositorio<AsignacionRolEntity>,
         };
     }
 
-   
+    
+
+
     #endregion
 }

@@ -2,6 +2,9 @@
 using Aplicacion.Protagonistas.CasosDeUso;
 using Aplicacion.Protagonistas.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiEducaramaBackend.Controladores;
 
@@ -11,74 +14,28 @@ public class ProtagonistasController : ControllerBase
 {
     private readonly ICrearUseCase<RegistroProtagonistaDTO> _crearUseCase;
     private readonly ILeerUseCase<PerfilProtagonistaDTO> _leerUseCase;
-    private readonly IActualizarUseCase<PerfilProtagonistaDTO> _actualizarUseCase;
-    private readonly IEliminarUseCase _eliminarUseCase;
+    private readonly IActualizarUseCase<PerfilProtagonistaDTO> _actualizarPerfilUseCase;
+    private readonly EliminarProtagonistaUseCase _eliminarUseCase;
+    private readonly ObtenerProtagonistasPorRamaUseCase _obtenerPorRamaUseCase;
     private readonly IActualizarUseCase<AsignarPatrullaDTO> _asignarPatrullaUseCase;
     private readonly IActualizarUseCase<CambiarRamaProtagonistaDTO> _cambiarRamaUseCase;
-    private readonly ObtenerProtagonistasPorRamaUseCase _obtenerPorRamaUseCase;
 
     public ProtagonistasController(
         ICrearUseCase<RegistroProtagonistaDTO> crearUseCase,
         ILeerUseCase<PerfilProtagonistaDTO> leerUseCase,
-        IActualizarUseCase<PerfilProtagonistaDTO> actualizarUseCase,
-        IEliminarUseCase eliminarUseCase,
+        IActualizarUseCase<PerfilProtagonistaDTO> actualizarPerfilUseCase,
+        EliminarProtagonistaUseCase eliminarUseCase,
+        ObtenerProtagonistasPorRamaUseCase obtenerPorRamaUseCase,
         IActualizarUseCase<AsignarPatrullaDTO> asignarPatrullaUseCase,
-        IActualizarUseCase<CambiarRamaProtagonistaDTO> cambiarRamaUseCase,
-        ObtenerProtagonistasPorRamaUseCase obtenerPorRamaUseCase)
+        IActualizarUseCase<CambiarRamaProtagonistaDTO> cambiarRamaUseCase)
     {
         _crearUseCase = crearUseCase;
         _leerUseCase = leerUseCase;
-        _actualizarUseCase = actualizarUseCase;
+        _actualizarPerfilUseCase = actualizarPerfilUseCase;
         _eliminarUseCase = eliminarUseCase;
+        _obtenerPorRamaUseCase = obtenerPorRamaUseCase;
         _asignarPatrullaUseCase = asignarPatrullaUseCase;
         _cambiarRamaUseCase = cambiarRamaUseCase;
-        _obtenerPorRamaUseCase = obtenerPorRamaUseCase;
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> Get()
-    {
-        try
-        {
-            var protagonistas = await _leerUseCase.ObtenerTodosAsync();
-            return Ok(protagonistas);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
-        }
-    }
-
-    [HttpGet("{id:int}")]
-    public async Task<IActionResult> Get(int id)
-    {
-        try
-        {
-            var protagonista = await _leerUseCase.ObtenerPorIdAsync(id);
-            return Ok(protagonista);
-        }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
-        }
-    }
-
-    [HttpGet("por-rama/{idRama:int}")]
-    public async Task<IActionResult> GetPorRama(int idRama)
-    {
-        try
-        {
-            var protagonistas = await _obtenerPorRamaUseCase.EjecutarAsync(idRama);
-            return Ok(protagonistas);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
-        }
     }
 
     [HttpPost]
@@ -87,16 +44,31 @@ public class ProtagonistasController : ControllerBase
         try
         {
             await _crearUseCase.AgregarAsync(dto);
-            return StatusCode(201, new { mensaje = "Protagonista creado exitosamente" });
+            return StatusCode(201, new { mensaje = "Protagonista registrado exitosamente." });
         }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(new { error = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
-        }
+        catch (Exception ex) { return StatusCode(500, new { error = "Error al registrar", detalle = ex.Message }); }
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetTodos()
+    {
+        var protagonistas = await _leerUseCase.ObtenerTodosAsync();
+        return Ok(protagonistas);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult> GetPorId(int id)
+    {
+        var protagonista = await _leerUseCase.ObtenerPorIdAsync(id);
+        if (protagonista == null) return NotFound(new { error = "Protagonista no encontrado." });
+        return Ok(protagonista);
+    }
+
+    [HttpGet("rama/{idRama:int}")]
+    public async Task<IActionResult> GetPorRama(int idRama)
+    {
+        var protagonistas = await _obtenerPorRamaUseCase.EjecutarAsync(idRama);
+        return Ok(protagonistas);
     }
 
     [HttpPut("{id:int}")]
@@ -104,20 +76,16 @@ public class ProtagonistasController : ControllerBase
     {
         try
         {
-            await _actualizarUseCase.ActualizarAsync(dto, id);
-            return Ok(new { mensaje = "Protagonista actualizado exitosamente" });
+            await _actualizarPerfilUseCase.ActualizarAsync(dto, id);
+            return Ok(new { mensaje = "Perfil actualizado correctamente." });
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
+        catch (KeyNotFoundException ex) 
+        { 
+            return NotFound(new { error = ex.Message }); 
         }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(new { error = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
+        catch (Exception ex) 
+        { 
+            return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); 
         }
     }
 
@@ -127,15 +95,15 @@ public class ProtagonistasController : ControllerBase
         try
         {
             await _eliminarUseCase.EliminarAsync(id);
-            return Ok(new { mensaje = "Protagonista eliminado exitosamente" });
+            return Ok(new { mensaje = "Protagonista eliminado correctamente." });
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
+        catch (KeyNotFoundException ex) 
+        { 
+            return NotFound(new { error = ex.Message }); 
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
+        catch (Exception ex) 
+        { 
+            return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); 
         }
     }
 
@@ -145,15 +113,17 @@ public class ProtagonistasController : ControllerBase
         try
         {
             await _asignarPatrullaUseCase.ActualizarAsync(dto, id);
-            return Ok(new { mensaje = "Patrulla asignada exitosamente" });
+            return Ok(new { mensaje = "Patrulla asignada correctamente." });
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
+
+        catch (KeyNotFoundException ex) 
+        { 
+            return NotFound(new { error = ex.Message }); 
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
+
+        catch (Exception ex) 
+        { 
+            return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); 
         }
     }
 
@@ -163,15 +133,15 @@ public class ProtagonistasController : ControllerBase
         try
         {
             await _cambiarRamaUseCase.ActualizarAsync(dto, id);
-            return Ok(new { mensaje = "Rama cambiada exitosamente" });
+            return Ok(new { mensaje = "Protagonista cambiado de rama correctamente." });
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(new { error = ex.Message });
+        catch (KeyNotFoundException ex) 
+        { 
+            return NotFound(new { error = ex.Message }); 
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
+        catch (Exception ex) 
+        { 
+            return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); 
         }
     }
 }

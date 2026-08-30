@@ -10,7 +10,7 @@ namespace Repositorio;
 
 public class UsuarioRepositorio : ICrearRepositorio<UsuarioEntity>, 
     ILeerRepositorio<UsuarioEntity>, IActualizarRepositorio<UsuarioEntity>, 
-    IEliminarRepositorio
+    IEliminarRepositorio, ILeerUsuarioPorEmailRepositorio
 {
     private readonly EducaramaContext _context;
 
@@ -65,7 +65,37 @@ public class UsuarioRepositorio : ICrearRepositorio<UsuarioEntity>,
             await _context.SaveChangesAsync();
         }
     }
- 
+
+    public async Task<UsuarioEntity> ObtenerPorEmailAsync(string email)
+    {
+        var usuario = await _context.Usuarios.Include(u => u.AsignacionRol).
+            FirstOrDefaultAsync(u => u.Email == email);
+
+        if (usuario is null)
+            return null;
+
+        var usuarioEntity = MapToEntity(usuario);
+
+        var asignacion = usuario.AsignacionRol.FirstOrDefault();
+
+        if (asignacion is not null)
+        {
+            usuarioEntity.AsignacionesRoles = new List<AsignacionRolEntity>
+            {
+                new AsignacionRolEntity
+                {
+                    Id = asignacion.Id,
+                    IdUsuario = asignacion.IdUsuario,
+                    IdRol = asignacion.IdRol,
+                    IdGrupo = asignacion.IdGrupo,
+                    IdRama = asignacion.IdRama
+                }
+            };
+        }
+
+        return usuarioEntity;
+    }
+
 
     #region
     private static UsuarioEntity MapToEntity(Usuario usuario)
@@ -88,5 +118,7 @@ public class UsuarioRepositorio : ICrearRepositorio<UsuarioEntity>,
             Contrasenia = usuarioEntity.Contrasenia
         };
     }
+
+    
     #endregion
 }

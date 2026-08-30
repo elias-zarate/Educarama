@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EA3E7A4F-116A-43DC-B247-7A05A0176518}|Repositorio\\Repositorio.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\repositorio\\protagonistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA3E7A4F-116A-43DC-B247-7A05A0176518}|Repositorio\\Repositorio.csproj|solutionrelative:repositorio\\protagonistarepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,24 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProtagonistaRepositorio.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Repositorio\\ProtagonistaRepositorio.cs",
-              "RelativeDocumentMoniker": "Repositorio\\ProtagonistaRepositorio.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Repositorio\\ProtagonistaRepositorio.cs",
-              "RelativeToolTip": "Repositorio\\ProtagonistaRepositorio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAnAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Program.cs",
+              "RelativeDocumentMoniker": "ApiEducaramaBackend\\Program.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Program.cs",
+              "RelativeToolTip": "ApiEducaramaBackend\\Program.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAAAJ8AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-23T23:53:42.67Z",
+              "WhenOpened": "2026-08-30T03:19:32.106Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             }
           ]
         }

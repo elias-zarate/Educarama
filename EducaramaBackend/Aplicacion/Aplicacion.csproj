@@ -13,11 +13,8 @@
   <ItemGroup>
     <Folder Include="AsignacionRoles\" />
     <Folder Include="Avisos\" />
-    <Folder Include="Desarrolla\" />
     <Folder Include="Documentos\" />
-    <Folder Include="EsFamilia\" />
     <Folder Include="Familiares\" />
-    <Folder Include="Grupos\" />
     <Folder Include="Senderos\" />
     <Folder Include="TipoAccion\" />
     <Folder Include="Roles\" />

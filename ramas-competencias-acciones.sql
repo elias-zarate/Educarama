@@ -1,26 +1,33 @@
 USE educarama;
 GO
 
--- 1. Insertar Senderos
+-- 1. Insertar Roles del Sistema
+INSERT INTO rol (nombre) VALUES 
+('Desarrollador / Admin'),  -- ID 1
+('Jefe de Grupo'),          -- ID 2 (El que usamos en el backend)
+('Jefe de Rama'),           -- ID 3
+('Educador');
+
+-- 2. Insertar Senderos
 INSERT INTO sendero (tipo) VALUES 
 ('Sendero de la salud y el bienestar'),
 ('Sendero de la paz'),
 ('Sendero del ambiente'),
 ('Sendero de las habilidades para la vida');
 
--- 2. Insertar Categorías de Rama
+-- 3. Insertar Categorías de Rama
 INSERT INTO categoria_rama (nombre) VALUES 
 ('Lobatos y Lobeznas'), 
 ('Scouts'), 
 ('Caminantes'), 
 ('Rovers');
 
--- 3. Insertar Tipos de Acción
+-- 4. Insertar Tipos de Acción
 INSERT INTO tipo_accion (tipo) VALUES 
 ('Requerida'), 
 ('Sugerida');
 
--- 4. Insertar las 53 Competencias (Rama Scouts = id_categoria_rama: 2)
+-- 5. Insertar las 53 Competencias (Rama Scouts = id_categoria_rama: 2)
 INSERT INTO Competencia (Codigo, Descripcion, id_categoria_rama, id_sendero) VALUES 
 -- Área 1: Salud y bienestar
 (1, 'Incorporo habitos de higiene.', 2, 1),

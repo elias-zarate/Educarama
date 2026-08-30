@@ -8,15 +8,24 @@ namespace ApiEducaramaBackend.Controladores;
 [Route("api/patrullas")]
 public class PatrullasController : ControllerBase
 {
+    private readonly ICrearUseCase<RegistroPatrullaDTO> _crearUseCase;
     private readonly ILeerUseCase<PatrullaDTO> _leerUseCase;
     private readonly ILeerPatrullasPorRamaUseCase _leerPorRamaUseCase;
+    private readonly IActualizarUseCase<PatrullaDTO> _actualizarUseCase;
+    private readonly IEliminarUseCase _eliminarUseCase;
 
-    public PatrullasController(
+    public PatrullasController(ICrearUseCase<RegistroPatrullaDTO> crearUseCase,
         ILeerUseCase<PatrullaDTO> leerUseCase,
-        ILeerPatrullasPorRamaUseCase leerPorRamaUseCase)
+        ILeerPatrullasPorRamaUseCase leerPorRamaUseCase,
+        IActualizarUseCase<PatrullaDTO> actualizarUseCase,
+        IEliminarUseCase eliminarUseCase)
     {
         _leerUseCase = leerUseCase;
         _leerPorRamaUseCase = leerPorRamaUseCase;
+        _crearUseCase = crearUseCase;
+        _actualizarUseCase = actualizarUseCase;
+        _eliminarUseCase = eliminarUseCase;
+        
     }
 
     [HttpGet]
@@ -63,5 +72,41 @@ public class PatrullasController : ControllerBase
         {
             return StatusCode(500, new { error = "Error interno del servidor", detalle = ex.Message });
         }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] RegistroPatrullaDTO dto)
+    {
+        try
+        {
+            await _crearUseCase.AgregarAsync(dto);
+            return StatusCode(201, new { mensaje = "Patrulla creada exitosamente" });
+        }
+        catch (ArgumentException ex) { return BadRequest(new { error = ex.Message }); }
+        catch (Exception ex) { return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); }
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<IActionResult> Put(int id, [FromBody] PatrullaDTO dto)
+    {
+        try
+        {
+            await _actualizarUseCase.ActualizarAsync(dto, id);
+            return Ok(new { mensaje = "Patrulla actualizada exitosamente" });
+        }
+        catch (KeyNotFoundException ex) { return NotFound(new { error = ex.Message }); }
+        catch (ArgumentException ex) { return BadRequest(new { error = ex.Message }); }
+        catch (Exception ex) { return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); }
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            await _eliminarUseCase.EliminarAsync(id);
+            return Ok(new { mensaje = "Patrulla eliminada exitosamente" });
+        }
+        catch (Exception ex) { return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); }
     }
 }
