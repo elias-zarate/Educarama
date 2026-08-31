@@ -12,5 +12,5 @@ public class RegistroUsuarioDTO
     // Datos de la Asignación de Rol
     public int IdRol { get; set; }
     public int? IdGrupo { get; set; }
-    public int IdRama { get; set; }
+    public int? IdRama { get; set; }
 }

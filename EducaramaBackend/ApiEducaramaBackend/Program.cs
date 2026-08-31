@@ -74,6 +74,10 @@ builder.Services.AddScoped<ILeerRepositorio<RamaEntity>, RamaRepositorio>();
 builder.Services.AddScoped<IActualizarRepositorio<RamaEntity>, RamaRepositorio>();
 builder.Services.AddScoped<ILeerUseCase<RamaDTO>, ObtenerRamasUseCase>();
 builder.Services.AddScoped<GenerarCodigoAccesoRamaUseCase>();
+builder.Services.AddScoped<ICrearRepositorio<RamaEntity>, RamaRepositorio>();
+builder.Services.AddScoped<ILeerRamaPorCodigoRepositorio, RamaRepositorio>();
+builder.Services.AddScoped<ILeerAsignacionPorUsuarioRepositorio, AsignacionRolRepositorio>();
+builder.Services.AddScoped<UnirseRamaUseCase>();
 
 // ===============================================
 // Servicios de Patrullas
@@ -88,6 +92,7 @@ builder.Services.AddScoped<ILeerPatrullasPorRamaUseCase, ObtenerPatrullasPorRama
 builder.Services.AddScoped<ICrearUseCase<RegistroPatrullaDTO>, RegistrarPatrullaUseCase>();
 builder.Services.AddScoped<IActualizarUseCase<PatrullaDTO>, ActualizarPatrullaUseCase>();
 builder.Services.AddScoped<IEliminarUseCase, EliminarPatrullaUseCase>();
+builder.Services.AddScoped<ObtenerPatrullasPorContextoUseCase>();
 
 // ===============================================
 // Servicios de Competencias y Acciones
@@ -118,9 +123,12 @@ builder.Services.AddScoped<IMapper<UsuarioEntity, PerfilUsuarioDTO>, UsuarioEnti
 
 builder.Services.AddScoped<ICrearUseCase<RegistroUsuarioDTO>, RegistrarUsuarioUseCase>();
 builder.Services.AddScoped<LoginUsuarioUseCase>();
-//builder.Services.AddScoped<ObtenerPerfilUsuarioUseCase>();
-//builder.Services.AddScoped<IActualizarUseCase<PerfilUsuarioDTO>, ActualizarPerfilUsuarioUseCase>();
-//builder.Services.AddScoped<IEliminarUseCase, EliminarUsuarioUseCase>();
+builder.Services.AddScoped<ObtenerPerfilUsuarioUseCase>();
+builder.Services.AddScoped<IActualizarUseCase<PerfilUsuarioDTO>, ActualizarPerfilUsuarioUseCase>();
+builder.Services.AddScoped<IEliminarUseCase, EliminarUsuarioUseCase>();
+builder.Services.AddScoped<ObtenerPerfilPorEmailUseCase>();
+builder.Services.AddScoped<UsuarioEntityToPerfilDtoMapper>();
+builder.Services.AddScoped<ObtenerContextoUsuarioUseCase>();
 
 // ===============================================
 // Servicios de Grupos
@@ -129,6 +137,8 @@ builder.Services.AddScoped<ILeerRepositorio<GrupoEntity>, GrupoRepositorio>();
 builder.Services.AddScoped<ICrearRepositorio<GrupoEntity>, GrupoRepositorio>();
 builder.Services.AddScoped<ILeerUseCase<GrupoDTO>, ObtenerGruposUseCase>();
 builder.Services.AddScoped<ICrearUseCase<RegistroGrupoDTO>, RegistrarGrupoUseCase>();
+builder.Services.AddScoped<UnirseGrupoUseCase>();
+builder.Services.AddScoped<ILeerGrupoPorCodigoRepositorio, GrupoRepositorio>();
 
 // ===============================================
 // Servicios de Protagonistas
@@ -140,6 +150,8 @@ builder.Services.AddScoped<ICrearRepositorio<ProtagonistaEntity>, ProtagonistaRe
 builder.Services.AddScoped<ILeerRepositorio<ProtagonistaEntity>, ProtagonistaRepositorio>();
 builder.Services.AddScoped<IActualizarRepositorio<ProtagonistaEntity>, ProtagonistaRepositorio>();
 builder.Services.AddScoped<ProtagonistaRepositorio>(); // Para usar sus métodos específicos directamente
+// Para que el caso de uso de Protagonistas pueda filtrarlos por rama
+builder.Services.AddScoped<ILeerProtagonistasPorRamaRepositorio, ProtagonistaRepositorio>();
 
 // Mappers
 builder.Services.AddScoped<IMapper<RegistroProtagonistaDTO, PersonaEntity>, RegistroDtoToPersonaMapper>();

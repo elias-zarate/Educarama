@@ -13,7 +13,7 @@ public partial class AsignacionRol
 
     public int? IdGrupo { get; set; }
 
-    public int IdRama { get; set; }
+    public int? IdRama { get; set; }
 
     public virtual Grupo? IdGrupoNavigation { get; set; }
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiEducaramaBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed0d423b3a952c9ef9dcbc72a65ba553da96d065")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3cd1d3ca7ce1aa0ddbe3a422d7a3ee3cc3f90a54")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiEducaramaBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiEducaramaBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

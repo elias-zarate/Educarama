@@ -24,6 +24,8 @@ public class UsuarioRepositorio : ICrearRepositorio<UsuarioEntity>,
         var usuario = MapToModel(entidad);
         await _context.Usuarios.AddAsync(usuario);
         await _context.SaveChangesAsync();
+        
+        entidad.Id = usuario.Id; //se la agregué recien
     }
 
     public async Task<UsuarioEntity?> ObtenerPorIdAsync(int id)

@@ -9,7 +9,8 @@ using System.Text;
 namespace Repositorio;
 
 public class AsignacionRolRepositorio : ICrearRepositorio<AsignacionRolEntity>,
-    IActualizarRepositorio<AsignacionRolEntity>, IAsignarGrupoUsuarioRepositorio
+    IActualizarRepositorio<AsignacionRolEntity>, IAsignarGrupoUsuarioRepositorio,
+    ILeerAsignacionPorUsuarioRepositorio
 {
     private readonly EducaramaContext _context;
 
@@ -59,6 +60,13 @@ public class AsignacionRolRepositorio : ICrearRepositorio<AsignacionRolEntity>,
         }
     }
 
+    public async Task<AsignacionRolEntity?> ObtenerPorUsuarioAsync(int idUsuario)
+    {
+        var asignacion = await _context.AsignacionesRol.FirstOrDefaultAsync(a => a.IdUsuario == idUsuario);
+        if (asignacion == null) return null;
+        return MapToEntity(asignacion);
+    }
+
     #region
     private static AsignacionRol MapTomodel(AsignacionRolEntity asignacionRolEntity)
     {
@@ -71,7 +79,17 @@ public class AsignacionRolRepositorio : ICrearRepositorio<AsignacionRolEntity>,
         };
     }
 
-    
+    private static AsignacionRolEntity MapToEntity(AsignacionRol asignacion)
+    {
+        return new AsignacionRolEntity
+        {
+            Id = asignacion.Id,
+            IdUsuario = asignacion.IdUsuario,
+            IdRol = asignacion.IdRol,
+            IdGrupo = asignacion.IdGrupo,
+            IdRama = asignacion.IdRama
+        };
+    }
 
 
     #endregion

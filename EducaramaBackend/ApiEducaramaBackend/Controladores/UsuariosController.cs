@@ -1,5 +1,7 @@
 ﻿using Aplicacion.Abstracciones.CasosDeUso;
 using Aplicacion.Abstracciones.Repositorios;
+using Aplicacion.Ramas.CasosDeUso;
+using Aplicacion.Ramas.DTOs;
 using Aplicacion.Usuarios.CasosDeUso;
 using Aplicacion.Usuarios.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -45,6 +47,38 @@ public class UsuariosController : ControllerBase
         }
     }
 
+    [HttpPost("unirse-grupo")]
+    public async Task<IActionResult> UnirseAlGrupo(
+    [FromBody] UnirseGrupoDTO dto,
+    [FromServices] UnirseGrupoUseCase unirseGrupoUseCase)
+    {
+        try
+        {
+            await unirseGrupoUseCase.UnirseAsync(dto);
+            return Ok(new { mensaje = "¡Usuario asignado al grupo exitosamente!" });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
+    }
+
+    [HttpPost("unirse-rama")]
+    public async Task<IActionResult> UnirseALaRama(
+        [FromBody] UnirseRamaDTO dto,
+        [FromServices] UnirseRamaUseCase unirseRamaUseCase)
+    {
+        try
+        {
+            await unirseRamaUseCase.UnirseAsync(dto);
+            return Ok(new { mensaje = "¡Usuario asignado a la rama exitosamente!" });
+        }
+        catch (ArgumentException ex) { return BadRequest(new { error = ex.Message }); }
+        catch (UnauthorizedAccessException ex) { return StatusCode(403, new { error = ex.Message }); }
+        catch (KeyNotFoundException ex) { return NotFound(new { error = ex.Message }); }
+        catch (Exception ex) { return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); }
+    }
+
     [HttpGet("{id:int}")]
     public async Task<IActionResult> Get(int id)
     {
@@ -64,6 +98,22 @@ public class UsuariosController : ControllerBase
                 error = "Error interno del servidor",
                 detalle = ex.Message
             });
+        }
+    }
+
+    [HttpGet("perfil/{email}")]
+    public async Task<IActionResult> ObtenerPerfil(
+    string email,
+    [FromServices] ObtenerPerfilPorEmailUseCase useCase)
+    {
+        try
+        {
+            var perfil = await useCase.ObtenerPerfilAsync(email);
+            return Ok(perfil);
+        }
+        catch (Exception ex)
+        {
+            return NotFound(new { error = ex.Message });
         }
     }
 

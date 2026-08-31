@@ -1,4 +1,5 @@
 ﻿using Aplicacion.Abstracciones.CasosDeUso;
+using Aplicacion.Patrullas.CasosDeUso;
 using Aplicacion.Patrullas.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -74,6 +75,21 @@ public class PatrullasController : ControllerBase
         }
     }
 
+    [HttpGet("filtradas")]
+    public async Task<IActionResult> ObtenerPorContexto(
+    [FromQuery] int idUsuarioLogueado,
+    [FromQuery] int? idRama,
+    [FromServices] ObtenerPatrullasPorContextoUseCase useCase)
+    {
+        try
+        {
+            var patrullas = await useCase.ObtenerAsync(idUsuarioLogueado, idRama);
+            return Ok(patrullas);
+        }
+        catch (UnauthorizedAccessException ex) { return StatusCode(403, new { error = ex.Message }); }
+        catch (Exception ex) { return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] RegistroPatrullaDTO dto)
     {
@@ -83,6 +99,8 @@ public class PatrullasController : ControllerBase
             return StatusCode(201, new { mensaje = "Patrulla creada exitosamente" });
         }
         catch (ArgumentException ex) { return BadRequest(new { error = ex.Message }); }
+        catch (UnauthorizedAccessException ex) { return StatusCode(403, new { error = ex.Message }); } // <-- NUEVO (403 Forbidden)
+        catch (KeyNotFoundException ex) { return NotFound(new { error = ex.Message }); } // <-- NUEVO (404 Not Found)
         catch (Exception ex) { return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); }
     }
 

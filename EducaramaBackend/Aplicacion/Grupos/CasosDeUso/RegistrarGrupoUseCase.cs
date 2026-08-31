@@ -12,16 +12,13 @@ public class RegistrarGrupoUseCase : ICrearUseCase<RegistroGrupoDTO>
 {
     private readonly ICrearRepositorio<GrupoEntity> _grupoRepositorio;
     private readonly ICrearRepositorio<RamaEntity> _ramaRepositorio;
-    private readonly IAsignarGrupoUsuarioRepositorio _asignacionRepositorio;
 
     public RegistrarGrupoUseCase(
         ICrearRepositorio<GrupoEntity> grupoRepositorio,
-        ICrearRepositorio<RamaEntity> ramaRepositorio,
-        IAsignarGrupoUsuarioRepositorio asignacionRepositorio)
+        ICrearRepositorio<RamaEntity> ramaRepositorio)
     {
         _grupoRepositorio = grupoRepositorio;
         _ramaRepositorio = ramaRepositorio;
-        _asignacionRepositorio = asignacionRepositorio;
     }
 
     public async Task AgregarAsync(RegistroGrupoDTO dto)
@@ -29,6 +26,7 @@ public class RegistrarGrupoUseCase : ICrearUseCase<RegistroGrupoDTO>
         if (dto == null || string.IsNullOrWhiteSpace(dto.NombreGrupo))
             throw new ArgumentException("El nombre del grupo es obligatorio.");
 
+        // 1. Nace el grupo independiente
         var nuevoGrupo = new GrupoEntity
         {
             Nombre = dto.NombreGrupo,
@@ -37,6 +35,7 @@ public class RegistrarGrupoUseCase : ICrearUseCase<RegistroGrupoDTO>
 
         await _grupoRepositorio.AgregarAsync(nuevoGrupo);
 
+        // 2. Se generan sus ramas base (también independientes de los usuarios)
         var ramasBase = new List<RamaEntity>
         {
             new RamaEntity { Nombre = "Manada", IdCategoriaRama = (int)CategoriasRama.LobatosYLobeznas, IdGrupo = nuevoGrupo.Id, CodigoAcceso = Guid.NewGuid().ToString("N").Substring(0,6).ToUpper() },
@@ -49,7 +48,5 @@ public class RegistrarGrupoUseCase : ICrearUseCase<RegistroGrupoDTO>
         {
             await _ramaRepositorio.AgregarAsync(rama);
         }
-
-        await _asignacionRepositorio.AsignarRolYGrupoAsync(dto.IdUsuario, nuevoGrupo.Id, (int)RolesSistema.JefeDeGrupo);
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Repositorio;
 
 public class GrupoRepositorio : ICrearRepositorio<GrupoEntity>, 
-    ILeerRepositorio<GrupoEntity>
+    ILeerRepositorio<GrupoEntity>, ILeerGrupoPorCodigoRepositorio
 {
     private readonly EducaramaContext _context;
 
@@ -41,6 +41,23 @@ public class GrupoRepositorio : ICrearRepositorio<GrupoEntity>,
         var grupos = await _context.Grupos.ToListAsync();
 
         return grupos.Select(MapToEntity);
+    }
+
+    public async Task<GrupoEntity?> ObtenerPorCodigoAsync(string codigo)
+    {
+        // Buscamos en la BD el grupo que tenga ese código exacto
+        var grupo = await _context.Grupos.FirstOrDefaultAsync(g => g.Codigo == codigo);
+
+        if (grupo == null)
+            return null; // Si no existe, devolvemos null
+
+        // Lo mapeamos a tu entidad de dominio (fijate si tus propiedades se llaman igual)
+        return new GrupoEntity
+        {
+            Id = grupo.Id,
+            Codigo = grupo.Codigo,
+            Nombre = grupo.Nombre!
+        };
     }
 
     #region Mappers

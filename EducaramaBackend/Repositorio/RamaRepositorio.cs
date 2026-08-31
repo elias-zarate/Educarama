@@ -8,7 +8,9 @@ using System.Text;
 
 namespace Repositorio;
 
-public class RamaRepositorio : ILeerRepositorio<RamaEntity>, IActualizarRepositorio<RamaEntity>
+public class RamaRepositorio : ILeerRepositorio<RamaEntity>, 
+    IActualizarRepositorio<RamaEntity>, ICrearRepositorio<RamaEntity>,
+    ILeerRamaPorCodigoRepositorio
 {
     private readonly EducaramaContext _context;
     public RamaRepositorio(EducaramaContext context)
@@ -40,6 +42,28 @@ public class RamaRepositorio : ILeerRepositorio<RamaEntity>, IActualizarReposito
 
         rama.CodigoAcceso = entidad.CodigoAcceso;
         await _context.SaveChangesAsync();
+    }
+
+    public async Task AgregarAsync(RamaEntity entidad)
+    {
+        var ramaDb = new Rama
+        {
+            Nombre = entidad.Nombre,
+            IdGrupo = entidad.IdGrupo,
+            IdCategoriaRama = entidad.IdCategoriaRama,
+            CodigoAcceso = entidad.CodigoAcceso
+        };
+
+        await _context.Ramas.AddAsync(ramaDb);
+        await _context.SaveChangesAsync();
+
+        entidad.Id = ramaDb.Id; // Le devolvemos el ID generado
+    }
+
+    public async Task<RamaEntity?> ObtenerPorCodigoAsync(string codigo)
+    {
+        var rama = await _context.Ramas.FirstOrDefaultAsync(r => r.CodigoAcceso == codigo);
+        return rama != null ? MapToEntity(rama) : null;
     }
 
     #region

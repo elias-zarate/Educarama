@@ -53,4 +53,20 @@ public class RamasController : ControllerBase
             return BadRequest(new { error = ex.Message });
         }
     }
+
+    [HttpPost("unirse")]
+    public async Task<IActionResult> Unirse(
+        [FromBody] UnirseRamaDTO dto,
+        [FromServices] UnirseRamaUseCase unirseRamaUseCase)
+    {
+        try
+        {
+            await unirseRamaUseCase.UnirseAsync(dto);
+            return Ok(new { mensaje = "¡Usuario asignado a la rama exitosamente!" });
+        }
+        catch (ArgumentException ex) { return BadRequest(new { error = ex.Message }); }
+        catch (UnauthorizedAccessException ex) { return StatusCode(403, new { error = ex.Message }); }
+        catch (KeyNotFoundException ex) { return NotFound(new { error = ex.Message }); }
+        catch (Exception ex) { return StatusCode(500, new { error = "Error interno", detalle = ex.Message }); }
+    }
 }

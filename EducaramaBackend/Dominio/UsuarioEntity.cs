@@ -2,7 +2,7 @@
 
 public class UsuarioEntity
 {
-    public int? Id { get; set; }
+    public int Id { get; set; }
 
     public required string Nombre
     {
