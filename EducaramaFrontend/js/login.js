@@ -7,37 +7,37 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         const email = document.querySelector('#email').value.trim();
-        const password = document.querySelector('#password').value.trim();
+        const contrasenia = document.querySelector('#password').value.trim();
+        const botonSubmit = formulario.querySelector('button[type="submit"]');
 
         try {
-            // 1. Cargamos la URL base desde config.json
-            const configRes = await fetch('../config.json');
-            const config = await configRes.json();
-            const apiUrl = config.apiUrl;
+            // Feedback visual mientras carga
+            botonSubmit.innerText = 'Iniciando...';
+            botonSubmit.disabled = true;
 
-            // 2. Hacemos el POST al endpoint de autenticación que armamos en C#
-            const response = await fetch(`${apiUrl}/auth/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email: email, contrasenia: password })
-            });
+            // Llamamos al motor que creamos en auth.js y guardamos el usuario que nos devuelve
+            const usuario = await Auth.login(email, contrasenia);
+            
+            // Verificamos si el usuario tiene asignado algún rol (y por ende, un grupo)
+            // Revisamos ambas convenciones de nombres por las dudas (CamelCase o PascalCase desde .NET)
+            const asignaciones = usuario.asignacionesRoles || usuario.asignacionRol || [];
+            const tieneGrupoORoles = asignaciones.length > 0;
 
-            const data = await response.json();
-
-            if (response.ok) {
-                // Guardamos los datos del usuario en sessionStorage para la sesión del cliente
-                sessionStorage.setItem('usuario', JSON.stringify(data.usuario));
-                
-                // Redirigimos al dashboard principal
-                window.location.href = '../index.html';
+            if (!tieneGrupoORoles) {
+                // Si la lista de roles está vacía, significa que nunca completó el segundo paso
+                window.location.href = 'unirse_grupo.html';
             } else {
-                alert(data.error || 'No se pudo iniciar sesión.');
+                // Si ya tiene rol y grupo, lo dejamos pasar al sistema
+                window.location.href = 'dashboard.html';
             }
+
         } catch (error) {
-            console.error('Error de red:', error);
-            alert('Ocurrió un error al intentar comunicarse con el servidor.');
+            console.error('Error:', error);
+            alert(error.message); // Muestra el error exacto ("Credenciales inválidas")
+        } finally {
+            // Restauramos el botón
+            botonSubmit.innerText = 'Iniciar Sesión';
+            botonSubmit.disabled = false;
         }
     });
 });

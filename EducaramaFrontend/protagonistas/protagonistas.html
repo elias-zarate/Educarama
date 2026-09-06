@@ -9,42 +9,9 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <!-- BARRA SUPERIOR -->
-    <div class="header-inst">
-        <div class="d-flex align-items-center gap-2">
-            <img class="img-fluid rounded-circle" src="../assets/images/Logo1.png" alt="Logo Educarama" style="width: 40px; height: 40px;">
-            <h1 class="m-0 fs-4 texto-blanco fw-bold">Educarama</h1>
-        </div>
-    </div>
+    <div class="header-inst"></div>
+    <div class="sidebar"></div>
 
-    <!-- MENÚ LATERAL -->
-    <div class="sidebar">
-        <nav class="nav flex-column">
-            <a class="nav-link" href="../../public/index.html"><span class="icon"><i class="bi bi-grid"></i></span><span class="description">Inicio</span></a>
-            
-            <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-protagonistas"><span class="icon"><i class="bi bi-people"></i></span><span class="description">Protagonistas <i class="bi bi-caret-down-fill"></i></span></a>
-            <div class="sub-menu collapse show" id="submenu-protagonistas">
-                <a class="nav-link active" href="protagonistas.html"><span class="icon"><i class="bi bi-eye"></i></span><span class="description">Ver protagonistas</span></a>
-                <a class="nav-link" href="alta_protagonista.html"><span class="icon"><i class="bi bi-person-plus"></i></span><span class="description">Agregar protagonista</span></a>
-            </div>
-
-            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-ramas"><span class="icon"><i class="bi bi-diagram-3"></i></span><span class="description">Ramas <i class="bi bi-caret-down-fill"></i></span></a>
-            <div class="sub-menu collapse" id="submenu-ramas">
-                <a class="nav-link" href="ramas.html"><span class="icon"><i class="bi bi-eye"></i></span><span class="description">Ver ramas</span></a>
-                <a class="nav-link" href="alta_rama.html"><span class="icon"><i class="bi bi-plus-circle"></i></span><span class="description">Agregar rama</span></a>
-            </div>
-
-            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-patrullas"><span class="icon"><i class="bi bi-shield-shaded"></i></span><span class="description">Patrullas <i class="bi bi-caret-down-fill"></i></span></a>
-            <div class="sub-menu collapse" id="submenu-patrullas">
-                <a class="nav-link" href="patrullas.html"><span class="icon"><i class="bi bi-eye"></i></span><span class="description">Ver patrullas</span></a>
-                <a class="nav-link" href="alta_patrulla.html"><span class="icon"><i class="bi bi-plus-circle"></i></span><span class="description">Agregar patrulla</span></a>
-            </div>
-            
-            <a href="gestionar_avisos.html" class="nav-link"><span class="icon"><i class="bi bi-megaphone"></i></span><span class="description">Avisos</span></a>
-        </nav>
-    </div>
-
-    <!-- CONTENIDO PRINCIPAL -->
     <div class="main-content-wrapper">
         <div class="container contenedor-principal my-4 p-4">
             <div class="barra-superior-inst mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
@@ -57,19 +24,16 @@
                 </a>
             </div>
             
-            <!-- Aquí se insertarán las tarjetas de los protagonistas -->
             <div class="row g-4" id="contenedor-protagonistas">
                 <p>Cargando protagonistas...</p>
             </div>
         </div>
     </div>
-
-    <!-- BARRA INFERIOR -->
     <div class="footer-inst">
         <p class="m-0 texto-blanco small">© 2026 Plataforma Educarama - Scouts de Argentina</p>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/componentes.js"></script>
     <script src="protagonistas.js"></script>
 </body>
 </html>

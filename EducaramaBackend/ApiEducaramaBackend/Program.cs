@@ -4,6 +4,9 @@ using Aplicacion.Abstracciones.Repositorios;
 using Aplicacion.Acciones.CasosDeUso;
 using Aplicacion.Acciones.DTOs;
 using Aplicacion.Acciones.Mappers;
+using Aplicacion.Avisos.CasosDeUso;
+using Aplicacion.Avisos.DTOs;
+using Aplicacion.Avisos.Mappers;
 using Aplicacion.CategoriaRamas.CasosDeUso;
 using Aplicacion.CategoriaRamas.DTOs;
 using Aplicacion.CategoriaRamas.Mappers;
@@ -47,10 +50,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi(); // <-- Swagger/OpenAPI y Scalar
 
-// Configuración de CORS para permitir peticiones del Frontend
+// Configuración única de CORS para permitir peticiones del Frontend
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("PermitirFrontend", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyHeader()
@@ -59,6 +62,12 @@ builder.Services.AddCors(options =>
 });
 
 var cadenaDeConexion = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// ===============================================
+// Base de Datos
+// ===============================================
+builder.Services.AddDbContext<EducaramaContext>(options =>
+    options.UseSqlServer(cadenaDeConexion));
 
 // ===============================================
 // Servicios de Categoría de Ramas
@@ -129,6 +138,7 @@ builder.Services.AddScoped<IEliminarUseCase, EliminarUsuarioUseCase>();
 builder.Services.AddScoped<ObtenerPerfilPorEmailUseCase>();
 builder.Services.AddScoped<UsuarioEntityToPerfilDtoMapper>();
 builder.Services.AddScoped<ObtenerContextoUsuarioUseCase>();
+builder.Services.AddScoped<CerrarSesionUseCase>();
 
 // ===============================================
 // Servicios de Grupos
@@ -143,27 +153,23 @@ builder.Services.AddScoped<ILeerGrupoPorCodigoRepositorio, GrupoRepositorio>();
 // ===============================================
 // Servicios de Protagonistas
 // ===============================================
-// Repositorios
 builder.Services.AddScoped<ICrearRepositorio<PersonaEntity>, PersonaRepositorio>();
 builder.Services.AddScoped<IActualizarRepositorio<PersonaEntity>, PersonaRepositorio>();
 builder.Services.AddScoped<ICrearRepositorio<ProtagonistaEntity>, ProtagonistaRepositorio>();
 builder.Services.AddScoped<ILeerRepositorio<ProtagonistaEntity>, ProtagonistaRepositorio>();
 builder.Services.AddScoped<IActualizarRepositorio<ProtagonistaEntity>, ProtagonistaRepositorio>();
-builder.Services.AddScoped<ProtagonistaRepositorio>(); // Para usar sus métodos específicos directamente
-// Para que el caso de uso de Protagonistas pueda filtrarlos por rama
+builder.Services.AddScoped<ProtagonistaRepositorio>();
 builder.Services.AddScoped<ILeerProtagonistasPorRamaRepositorio, ProtagonistaRepositorio>();
 
-// Mappers
 builder.Services.AddScoped<IMapper<RegistroProtagonistaDTO, PersonaEntity>, RegistroDtoToPersonaMapper>();
 builder.Services.AddScoped<IMapper<RegistroProtagonistaDTO, ProtagonistaEntity>, RegistroDtoToProtagonistaMapper>();
 builder.Services.AddScoped<IMapper<ProtagonistaEntity, PerfilProtagonistaDTO>, ProtagonistaEntityToPerfilDtoMapper>();
 
-// Casos de Uso
 builder.Services.AddScoped<ICrearUseCase<RegistroProtagonistaDTO>, RegistrarProtagonistaUseCase>();
 builder.Services.AddScoped<ILeerUseCase<PerfilProtagonistaDTO>, ObtenerPerfilProtagonistaUseCase>();
 builder.Services.AddScoped<IActualizarUseCase<PerfilProtagonistaDTO>, ActualizarPerfilProtagonistaUseCase>();
-builder.Services.AddScoped<EliminarProtagonistaUseCase>(); // Registrado por clase concreta
-builder.Services.AddScoped<ObtenerProtagonistasPorRamaUseCase>(); // Registrado por clase concreta
+builder.Services.AddScoped<EliminarProtagonistaUseCase>();
+builder.Services.AddScoped<ObtenerProtagonistasPorRamaUseCase>();
 builder.Services.AddScoped<IActualizarUseCase<AsignarPatrullaDTO>, AsignarPatrullaProtagonistaUseCase>();
 builder.Services.AddScoped<IActualizarUseCase<CambiarRamaProtagonistaDTO>, CambiarRamaProtagonistaUseCase>();
 
@@ -175,18 +181,16 @@ builder.Services.AddScoped<ICrearRepositorio<ObtieneEntity>, ObtieneRepositorio>
 builder.Services.AddScoped<IMapper<CumpleDTO, CumpleEntity>, CumpleDtoToEntityMapper>();
 builder.Services.AddScoped<IMapper<ObtieneDTO, ObtieneEntity>, ObtieneDtoToEntityMapper>();
 builder.Services.AddScoped<ICrearUseCase<CumpleDTO>, RegistrarCumplimientoAccionUseCase>();
-//builder.Services.AddScoped<ICrearUseCase<ObtenerInsigniaDTO>, OtorgarInsigniaUseCase>();
-
+// Descomentar cuando implementes el caso de uso de insignias:
+// builder.Services.AddScoped<ICrearUseCase<ObtenerInsigniaDTO>, OtorgarInsigniaUseCase>();
 
 // ===============================================
 // Servicios de Familiares
 // ===============================================
-// Repositorios
 builder.Services.AddScoped<ICrearRepositorio<FamiliarEntity>, FamiliarRepositorio>();
 builder.Services.AddScoped<IActualizarRepositorio<FamiliarEntity>, FamiliarRepositorio>();
 builder.Services.AddScoped<IEsFamiliaRepositorio, EsFamiliaRepositorio>();
 
-// Casos de Uso
 builder.Services.AddScoped<ICrearUseCase<RegistroFamiliarCompletoDTO>, RegistrarFamiliarUseCase>();
 builder.Services.AddScoped<ICrearUseCase<AsignarFamiliarExistenteDTO>, AsignarFamiliarExistenteUseCase>();
 builder.Services.AddScoped<ObtenerFamiliaresPorProtagonistaUseCase>();
@@ -195,23 +199,36 @@ builder.Services.AddScoped<EliminarVinculoFamiliarUseCase>();
 // ===============================================
 // Servicios de Competencias en Desarrollo (Desarrolla)
 // ===============================================
-// Repositorios
 builder.Services.AddScoped<IDesarrollaRepositorio, DesarrollaRepositorio>();
-
-// Casos de Uso
 builder.Services.AddScoped<ICrearUseCase<AsignarCompetenciaDTO>, AsignarCompetenciaUseCase>();
 builder.Services.AddScoped<ObtenerCompetenciasPorProtagonistaUseCase>();
 
-// =======================================================
-// 3. BASE DE DATOS
-// =======================================================
-builder.Services.AddDbContext<EducaramaContext>(options =>
-    options.UseSqlServer(cadenaDeConexion));
+// ===============================================
+// Servicios de Avisos
+// ===============================================
+// Repositorios
+builder.Services.AddScoped<ICrearRepositorio<AvisoEntity>, AvisoRepositorio>();
+builder.Services.AddScoped<ILeerRepositorio<AvisoEntity>, AvisoRepositorio>();
+builder.Services.AddScoped<IActualizarRepositorio<AvisoEntity>, AvisoRepositorio>();
+builder.Services.AddScoped<IEliminarRepositorio, AvisoRepositorio>();
+builder.Services.AddScoped<ILeerAvisosActivosRepositorio, AvisoRepositorio>();
+
+// Mappers
+builder.Services.AddScoped<IMapper<AvisoEntity, AvisoDTO>, AvisoEntityToDtoMapper>();
+builder.Services.AddScoped<IMapper<RegistroAvisoDTO, AvisoEntity>, RegistroDtoToAvisoMapper>();
+
+// Casos de Uso
+builder.Services.AddScoped<ICrearUseCase<RegistroAvisoDTO>, RegistrarAvisoUseCase>();
+builder.Services.AddScoped<ObtenerAvisosUseCase>();
+builder.Services.AddScoped<ObtenerAvisosActivosUseCase>();
 
 var app = builder.Build();
 
-// Area de middlewares
-app.UseCors("AllowAll");
+// ===============================================
+// Área de Middlewares
+// ===============================================
+app.UseCors("PermitirFrontend"); // Siempre antes de MapControllers
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

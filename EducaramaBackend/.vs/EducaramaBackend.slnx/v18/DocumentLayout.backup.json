@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\controladores\\patrullascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\controladores\\patrullascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\patrullas\\casosdeuso\\obtenerpatrullasporcontextousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\patrullas\\casosdeuso\\obtenerpatrullasporcontextousecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\usuarios\\casosdeuso\\cerrarsesionusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\usuarios\\casosdeuso\\cerrarsesionusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\patrullas\\casosdeuso\\registrarpatrullausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\patrullas\\casosdeuso\\registrarpatrullausecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\apieducaramabackend\\controladores\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D5E5C08-9228-40AD-9B2B-32FDA1D720D6}|ApiEducaramaBackend\\ApiEducaramaBackend.csproj|solutionrelative:apieducaramabackend\\controladores\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\patrullas\\dtos\\registropatrulladto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\patrullas\\dtos\\registropatrulladto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|c:\\tecnicatura en desarrollo de software\\2do a\u00F1o\\practicas profesionalizantes ii\\educarama\\educaramabackend\\aplicacion\\usuarios\\dtos\\logoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54D7E773-B5EC-2465-6F17-0048D1E6AE79}|Aplicacion\\Aplicacion.csproj|solutionrelative:aplicacion\\usuarios\\dtos\\logoutdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,19 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Program.cs",
               "RelativeDocumentMoniker": "ApiEducaramaBackend\\Program.cs",
               "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Program.cs",
               "RelativeToolTip": "ApiEducaramaBackend\\Program.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF4AAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAAAIwAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-31T18:38:56.472Z",
+              "WhenOpened": "2026-09-04T00:28:02.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\AuthController.cs",
+              "RelativeDocumentMoniker": "ApiEducaramaBackend\\Controladores\\AuthController.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\AuthController.cs",
+              "RelativeToolTip": "ApiEducaramaBackend\\Controladores\\AuthController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwC4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T00:27:32.769Z",
               "EditorCaption": ""
             },
             {
@@ -51,53 +60,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ObtenerPatrullasPorContextoUseCase.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorContextoUseCase.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorContextoUseCase.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorContextoUseCase.cs",
-              "RelativeToolTip": "Aplicacion\\Patrullas\\CasosDeUso\\ObtenerPatrullasPorContextoUseCase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CerrarSesionUseCase.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Usuarios\\CasosDeUso\\CerrarSesionUseCase.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\Usuarios\\CasosDeUso\\CerrarSesionUseCase.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Usuarios\\CasosDeUso\\CerrarSesionUseCase.cs",
+              "RelativeToolTip": "Aplicacion\\Usuarios\\CasosDeUso\\CerrarSesionUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-31T18:38:26.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PatrullasController.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\PatrullasController.cs",
-              "RelativeDocumentMoniker": "ApiEducaramaBackend\\Controladores\\PatrullasController.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\ApiEducaramaBackend\\Controladores\\PatrullasController.cs",
-              "RelativeToolTip": "ApiEducaramaBackend\\Controladores\\PatrullasController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAmwEwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-31T01:10:58.551Z",
+              "WhenOpened": "2026-09-04T00:22:20.037Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "RegistrarPatrullaUseCase.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\CasosDeUso\\RegistrarPatrullaUseCase.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\Patrullas\\CasosDeUso\\RegistrarPatrullaUseCase.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\CasosDeUso\\RegistrarPatrullaUseCase.cs",
-              "RelativeToolTip": "Aplicacion\\Patrullas\\CasosDeUso\\RegistrarPatrullaUseCase.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAuwD4AAAABAAAAAAAAAA==",
+              "Title": "LogoutDTO.cs",
+              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Usuarios\\DTOs\\LogoutDTO.cs",
+              "RelativeDocumentMoniker": "Aplicacion\\Usuarios\\DTOs\\LogoutDTO.cs",
+              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Usuarios\\DTOs\\LogoutDTO.cs",
+              "RelativeToolTip": "Aplicacion\\Usuarios\\DTOs\\LogoutDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-31T01:10:25.84Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegistroPatrullaDTO.cs",
-              "DocumentMoniker": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\DTOs\\RegistroPatrullaDTO.cs",
-              "RelativeDocumentMoniker": "Aplicacion\\Patrullas\\DTOs\\RegistroPatrullaDTO.cs",
-              "ToolTip": "C:\\Tecnicatura En Desarrollo De Software\\2do a\u00F1o\\Practicas Profesionalizantes II\\Educarama\\EducaramaBackend\\Aplicacion\\Patrullas\\DTOs\\RegistroPatrullaDTO.cs",
-              "RelativeToolTip": "Aplicacion\\Patrullas\\DTOs\\RegistroPatrullaDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-31T01:09:56.378Z"
+              "WhenOpened": "2026-09-04T00:21:36.092Z",
+              "EditorCaption": ""
             }
           ]
         }
