@@ -1,4 +1,3 @@
-// src/Controladores/RegistroController.php
 <?php
 
 require_once __DIR__ . '/../Datos/Database.php';

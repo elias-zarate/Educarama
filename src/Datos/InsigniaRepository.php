@@ -1,20 +1,14 @@
 <?php
-require_once __DIR__ . '/Database.php';
-require_once __DIR__ . '/../Model/Insignia.php';
+require_once __DIR__ . '/src/Model/Insignia.php';
 
 class InsigniaRepository implements MostrarTodoInterface, MostrarPorIdInterface, AgregarInterface, ActualizarInterface, EliminarInterface {
     private PDO $db;
-
-    public function __construct() { 
-        $this->db = Database::getConexion(); 
-    }
+    public function __construct() { $this->db = Database::getConexion(); }
 
     public function mostrarTodo(): array {
         $stmt = $this->db->query("SELECT * FROM insignia");
         $items = [];
-        while ($row = $stmt->fetch()) { 
-            $items[] = new Insignia((int)$row['id'], $row['nombre'], (int)$row['id_categoria_rama']); 
-        }
+        while ($row = $stmt->fetch()) { $items[] = new Insignia((int)$row['id'], $row['nombre'], (int)$row['id_categoria_rama']); }
         return $items;
     }
 
@@ -38,18 +32,6 @@ class InsigniaRepository implements MostrarTodoInterface, MostrarPorIdInterface,
     public function eliminar(int $id): void {
         $stmt = $this->db->prepare("DELETE FROM insignia WHERE id = ?");
         $stmt->execute([$id]);
-    }
-
-    // --- NUEVO MÉTODO: REGISTRO DE ASIGNACIÓN (Tabla obtiene) ---
-    public function otorgarInsigniaAProtagonista(int $idProtagonista, int $idInsignia): void {
-        $fecha = date('Y-m-d');
-        
-        $stmt = $this->db->prepare("
-            INSERT INTO obtiene (id_protagonista, id_insignia, fecha) 
-            VALUES (?, ?, ?) 
-            ON DUPLICATE KEY UPDATE fecha = VALUES(fecha)
-        ");
-        $stmt->execute([$idProtagonista, $idInsignia, $fecha]);
     }
 }
 ?>

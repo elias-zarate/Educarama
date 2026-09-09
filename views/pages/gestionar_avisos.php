@@ -1,30 +1,27 @@
 <?php
-require_once __DIR__ . '/../../src/Controladores/AuthMiddleware.php';
-?>
-<?php
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$tituloPagina = "Gestionar eventos";
+$tituloPagina = "Gestionar avisos";
 
-require_once __DIR__ . '/../../src/Controladores/EventoControlador.php';
+require_once __DIR__ . '/../../src/Controladores/AvisoControlador.php';
 
-$controlador = new EventoControlador();
+$controlador = new AvisoControlador();
 
 try {
     $controlador->procesarAcciones();
 
-    $eventoEditar = $controlador->obtenerEventosParaEditar();
-    $eventos = $controlador->listarEventos();
+    $avisoEditar = $controlador->obtenerAvisoEditar();
+    $avisos = $controlador->listarAvisos();
     $filtro = $controlador->obtenerFiltroActual();
 
 } catch (Exception $e) {
     $error = $e->getMessage();
 
-    $eventoEditar = null;
-    $eventos = [];
+    $avisoEditar = null;
+    $avisos = [];
     $filtro = $_GET['filtro'] ?? 'todos';
 }
 ?>
@@ -32,7 +29,7 @@ try {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Educarama - Eventos</title>
+    <title>Educarama - Avisos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
@@ -56,11 +53,9 @@ include __DIR__ . '/includes/menu_lateral.php';
 
         <div class="barra-superior-inst mb-4">
             <h1 class="fw-bold mb-1">
-                <?= $avisoEditar ? 'Editar aviso' : 'Crear aviso' ?>
+                <?= $avisoEditar ? 'Editar aviso' : 'Gestionar avisos' ?>
             </h1>
-            <p class="mb-0">
-                <?= $avisoEditar ? 'Modificá los datos del aviso seleccionado.' : 'Completá los datos para crear un nuevo aviso.' ?>
-            </p>
+            <p class="mb-0">Administrá los avisos que se muestran en la pantalla de inicio.</p>
         </div>
 
         <form method="POST" class="tarjeta-blanca-borde p-4 mb-4">
@@ -151,39 +146,39 @@ include __DIR__ . '/includes/menu_lateral.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($eventos as $evento): ?>
+                            <?php foreach ($avisos as $aviso): ?>
                                 <tr>
                                     <td>
-                                        <strong><?= htmlspecialchars($evento['titulo']) ?></strong><br>
-                                        <small><?= htmlspecialchars($evento['descripcion']) ?></small>
+                                        <strong><?= htmlspecialchars($aviso['titulo']) ?></strong><br>
+                                        <small><?= htmlspecialchars($aviso['descripcion']) ?></small>
                                     </td>
-                                    <td><?= ucfirst(htmlspecialchars($evento['prioridad'])) ?></td>
-                                    <td><?= htmlspecialchars($evento['fecha_inicio']) ?></td>
-                                    <td><?= $evento['fecha_fin'] ? htmlspecialchars($evento['fecha_fin']) : 'Sin fin' ?></td>
+                                    <td><?= ucfirst(htmlspecialchars($aviso['prioridad'])) ?></td>
+                                    <td><?= htmlspecialchars($aviso['fecha_inicio']) ?></td>
+                                    <td><?= $aviso['fecha_fin'] ? htmlspecialchars($aviso['fecha_fin']) : 'Sin fin' ?></td>
                                     <td>
-                                        <?php if ($evento['activo']): ?>
+                                        <?php if ($aviso['activo']): ?>
                                             <span class="badge bg-success">Activo</span>
                                         <?php else: ?>
                                             <span class="badge bg-secondary">Inactivo</span>
                                         <?php endif; ?>
                                     </td>
                                     <td class="text-end">
-                                        <a href="/Educarama/views/pages/gestionar_eventos.php?editar=<?= $evento['id'] ?>" class="btn btn-sm btn-warning">
+                                        <a href="/Educarama/views/pages/gestionar_avisos.php?editar=<?= $aviso['id'] ?>" class="btn btn-sm btn-warning">
                                             <i class="bi bi-pencil"></i>
                                         </a>
 
-                                        <?php if ($evento['activo']): ?>
+                                        <?php if ($aviso['activo']): ?>
                                             <a
                                                 href="#"
                                                 class="btn btn-sm btn-danger btn-desactivar"
-                                                data-id="<?= $evento['id'] ?>"
-                                                data-titulo="<?= htmlspecialchars($evento['titulo']) ?>"
+                                                data-id="<?= $aviso['id'] ?>"
+                                                data-titulo="<?= htmlspecialchars($aviso['titulo']) ?>"
                                             >
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         <?php else: ?>
                                             <a 
-                                                href="/Educarama/views/pages/gestionar_eventos.php?accion=reactivar&id=<?= $evento['id'] ?>" 
+                                                href="/Educarama/views/pages/gestionar_avisos.php?accion=reactivar&id=<?= $aviso['id'] ?>" 
                                                 class="btn btn-sm btn-success"
                                             >
                                                 <i class="bi bi-arrow-clockwise"></i>

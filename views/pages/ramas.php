@@ -1,9 +1,3 @@
-
-
-<?php
-require_once __DIR__ . '/../../src/Controladores/AuthMiddleware.php';
-?>
-
 <?php
 $tituloPagina = "Ramas";
 
@@ -40,14 +34,16 @@ include __DIR__ . '/includes/menu_lateral.php';
                 <p class="mb-0">Administrá las ramas del grupo scout.</p>
             </div>
 
-          
+            <a href="/Educarama/views/pages/alta_rama.php" class="boton-primario px-4 py-2 fw-bold text-decoration-none">
+                <i class="bi bi-plus-circle me-2"></i>Nueva rama
+            </a>
         </div>
 
         <div class="row g-4">
             <?php if (!empty($ramas)): ?>
                 <?php foreach ($ramas as $rama): ?>
                     <div class="col-12 col-md-6 col-lg-4">
-                        <a href="/Educarama/views/pages/perfil_rama.php?id=<?= $rama['id'] ?>" class="rama-card text-decoration-none">
+                        <div class="rama-card">
                             <div class="rama-icono">
                                 <i class="bi bi-diagram-3-fill"></i>
                             </div>
@@ -64,10 +60,8 @@ include __DIR__ . '/includes/menu_lateral.php';
                                     <i class="bi bi-house-heart me-1"></i>
                                     Grupo: <?= htmlspecialchars($rama['grupo'] ?? 'Sin grupo') ?>
                                 </p>
-
-                                <span class="ver-perfil">Ver perfil</span>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -75,16 +69,6 @@ include __DIR__ . '/includes/menu_lateral.php';
             <?php endif; ?>
         </div>
 
-        <!-- BOTONES DE ACCIÓN -->
-        <div class="row g-3 mt-3">
-                  <div class="col-12 col-md-4">
-                <a 
-                    href="gestionar_ramas.php" 
-                    class="boton-primario w-100 py-3 fw-bold text-decoration-none text-center d-block">
-                    <i class="bi bi-diagram-3-gear me-2"></i>Crear Rama
-                    </a>
-            </div>
-        </div>
     </div>
 </div>
 

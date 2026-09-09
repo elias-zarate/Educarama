@@ -1,14 +1,10 @@
 <?php
-
-require_once __DIR__ . '/../Model/Grupo.php';
-require_once __DIR__ . '/Database.php';
+// (Mismos requires de interfaces y Database.php)
+require_once __DIR__ . '/src/Dominio/Model/Grupo.php';
 
 class GrupoRepository implements MostrarTodoInterface, MostrarPorIdInterface, AgregarInterface, ActualizarInterface, EliminarInterface {
     private PDO $db;
-
-    public function __construct() { 
-        $this->db = Database::getConexion(); 
-    }
+    public function __construct() { $this->db = Database::getConexion(); }
 
     public function mostrarTodo(): array {
         $stmt = $this->db->query("SELECT * FROM grupo");
@@ -26,13 +22,6 @@ class GrupoRepository implements MostrarTodoInterface, MostrarPorIdInterface, Ag
         return $row ? new Grupo((int)$row['id'], $row['codigo'], $row['nombre']) : null;
     }
 
-    public function buscarPorCodigo(string $codigo): ?array {
-        $stmt = $this->db->prepare("SELECT * FROM grupo WHERE codigo = :codigo LIMIT 1");
-        $stmt->execute([':codigo' => $codigo]);
-        $grupo = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $grupo ?: null;
-    }
-
     public function agregar($grupo): void {
         $stmt = $this->db->prepare("INSERT INTO grupo (codigo, nombre) VALUES (?, ?)");
         $stmt->execute([$grupo->codigo, $grupo->nombre]);
@@ -48,3 +37,4 @@ class GrupoRepository implements MostrarTodoInterface, MostrarPorIdInterface, Ag
         $stmt->execute([$id]);
     }
 }
+?>

@@ -1,5 +1,3 @@
-/src/Controladores/ProtagonistaController.php
-
 <?php
 
 require_once __DIR__ . '/../Datos/Database.php';
@@ -54,25 +52,11 @@ class ProtagonistaController
         return $this->servicio->obtenerPerfil((int) $_GET['id']);
     }
 
-    public function obtenerProtagonistaEditar(): ?array
-    {
-        if (empty($_GET['editar'])) {
-            return null;
-        }
-
-        return $this->servicio->obtenerPerfil((int) $_GET['editar']);
-    }
-
     public function listarCards(): array
     {
         return $this->servicio->listarCards();
     }
-     
-    public function listarProtagonistas(): array
-    {
-        return $this->servicio->listarProtagonistas();
-    }
-    
+
     public function listarRamas(): array
     {
         return $this->ramaRepository->listarTodo();

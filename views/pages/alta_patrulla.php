@@ -1,9 +1,6 @@
 <?php
-require_once __DIR__ . '/../../src/Controladores/AuthMiddleware.php';
-?>
-
-<?php
 $tituloPagina = "Nueva Patrulla";
+
 require_once __DIR__ . '/../../src/Controladores/PatrullaController.php';
 
 $controlador = new PatrullaController();
@@ -53,7 +50,16 @@ include __DIR__ . '/includes/menu_lateral.php';
 
         <form method="POST" class="tarjeta-blanca-borde p-4">
 
-      
+            <div class="mb-3">
+                <label class="form-label fw-bold">Nombre de la patrulla</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    class="form-control" 
+                    placeholder="Ej: Halcones, Pumas, Seisena Roja..."
+                    required
+                >
+            </div>
 
             <div class="mb-3">
                 <label class="form-label fw-bold">Rama</label>
@@ -65,17 +71,6 @@ include __DIR__ . '/includes/menu_lateral.php';
                         </option>
                     <?php endforeach; ?>
                 </select>
-            </div>
-
-                  <div class="mb-3">
-                <label class="form-label fw-bold">Nombre de la patrulla</label>
-                <input 
-                    type="text" 
-                    name="nombre" 
-                    class="form-control" 
-                    placeholder="Ej: Halcones, Pumas, Seisena Roja..."
-                    required
-                >
             </div>
 
             <div class="d-flex gap-2">

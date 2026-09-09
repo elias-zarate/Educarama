@@ -1,19 +1,10 @@
-
 <?php
-//public/index.php
+
 require_once __DIR__ . '/../src/Controladores/AuthMiddleware.php';
 
 $tituloPagina = "Inicio";
-require_once __DIR__ . '/../src/Controladores/eventoControlador.php';
-
-// 1. Instancias el controlador
-$eventoControlador = new eventoControlador();
-
-// 2. Llamas al método y guardas el resultado en la variable que usa el HTML
-$eventos = $eventoControlador->listareventosHome();
+require_once __DIR__ . '/../src/Controladores/AvisoControlador.php';
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -38,45 +29,49 @@ $eventos = $eventoControlador->listareventosHome();
 
             <section class="home-welcome">
                 <h2>Bienvenido a Educarama</h2>
-                <p>Panel principal para visualizar eventos, actividades y novedades del grupo scout.</p>
+                <p>Panel principal para visualizar avisos, actividades y novedades del grupo scout.</p>
             </section>
 
-            <h3 class="home-section-title">📢 Eventos</h3>
+            <h3 class="home-section-title">📢 Avisos importantes</h3>
 
             <section class="home-alerts">
                 <ul>
-                    <?php if (!empty($eventos)): ?>
-                        <?php foreach ($eventos as $evento): ?>
+                    <?php if (!empty($avisos)): ?>
+                        <?php foreach ($avisos as $aviso): ?>
                             <li>
-                                <strong><?= htmlspecialchars($evento['titulo']) ?>:</strong>
-                                <?= htmlspecialchars($evento['descripcion']) ?>
+                                <strong><?= htmlspecialchars($aviso['titulo']) ?>:</strong>
+                                <?= htmlspecialchars($aviso['descripcion']) ?>
                             </li>
                         <?php endforeach; ?>
                     <?php else: ?>
-                        <li>No hay eventos importantes pronto.</li>
+                        <li>No hay avisos importantes cargados.</li>
                     <?php endif; ?>
                 </ul>
             </section>
 
             <section class="home-stats">
-                <a class="home-stat-card text-decoration-none" href="/Educarama/views/pages/protagonistas.php">
+                <div class="home-stat-card">
                     <div class="icon">👦</div>
+                    <h3>24</h3>
                     <p>Protagonistas</p>
-                </a>
+                </div>
 
-                <a class="home-stat-card text-decoration-none" href="/Educarama/views/pages/patrullas.php">
-                    <div class="icon">👥</div>
-                    <p>Patrullas</p>
-                </a>
+                <div class="home-stat-card">
+                    <div class="icon">👨‍🏫</div>
+                    <h3>8</h3>
+                    <p>Educadores</p>
+                </div>
 
-                <a class="home-stat-card text-decoration-none" href="/Educarama/views/pages/ramas.php">
+                <div class="home-stat-card">
                     <div class="icon">🏕️</div>
-                    <p>Ramas</p>
-                </a>
+                    <h3>4</h3>
+                    <p>Ramas activas</p>
+                </div>
 
-                <div class="home-stat-card" >
-                    <div class="icon">📅</div>
-                    <p>Actividades</p>                
+                <div class="home-stat-card">
+                    <div class="icon">⭐</div>
+                    <h3>16</h3>
+                    <p>Insignias</p>
                 </div>
             </section>
 
@@ -123,9 +118,20 @@ $eventos = $eventoControlador->listareventosHome();
                 </div>
             </section>
 
+            <section class="home-card mt-4">
+                <h3>📝 Últimos movimientos</h3>
+
+                <ul class="movements-list">
+                    <li>Se registró un nuevo protagonista.</li>
+                    <li>Se actualizó la progresión de un integrante.</li>
+                    <li>Se creó una nueva patrulla.</li>
+                </ul>
+            </section>
+
             <section class="home-actions">
                 <a href="/Educarama/views/pages/protagonistas.php" class="home-action-btn">Ver protagonistas</a>
-                <a href="/Educarama/views/pages/alta_patrulla.php" class="home-action-btn">Nueva patrulla</a>
+                <a href="#" class="home-action-btn">Nueva actividad</a>
+                <a href="#" class="home-action-btn">Nueva patrulla</a>
             </section>
 
         </div>

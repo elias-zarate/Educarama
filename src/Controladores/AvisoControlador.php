@@ -1,20 +1,20 @@
 <?php
 
 require_once __DIR__ . '/../Datos/Database.php';
-require_once __DIR__ . '/../Datos/eventoRepositorio.php';
-require_once __DIR__ . '/../Servicios/EventoService.php';
+require_once __DIR__ . '/../Datos/AvisoRepositorio.php';
+require_once __DIR__ . '/../Servicios/AvisoService.php';
 
-class EventoControlador
+class AvisoControlador
 {
-    private EventoServicio $servicio;
+    private AvisoServicio $servicio;
 
     public function __construct()
     {
         $conexion = Database::getConexion();
 
-        $repositorio = new EventoRepositorio($conexion);
+        $repositorio = new AvisoRepositorio($conexion);
 
-        $this->servicio = new EventoServicio($repositorio);
+        $this->servicio = new AvisoServicio($repositorio);
     }
 
     public function procesarAcciones(): void
@@ -22,30 +22,30 @@ class EventoControlador
         if (isset($_GET['accion'], $_GET['id'])) {
             $this->servicio->ejecutarAccion($_GET['accion'], (int) $_GET['id']);
 
-            header("Location: gestionar_eventos.php");
+            header("Location: gestionar_avisos.php");
             exit;
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->servicio->guardarDesdeFormulario($_POST);
 
-            header("Location: gestionar_eventos.php");
+            header("Location: gestionar_avisos.php");
             exit;
         }
     }
 
-    public function obtenerEventosParaEditar(): ?array
+    public function obtenerAvisoEditar(): ?array
     {
         $idEditar = isset($_GET['editar']) ? (int) $_GET['editar'] : null;
 
-        return $this->servicio->buscarEventoParaEditar($idEditar);
+        return $this->servicio->buscarAvisoParaEditar($idEditar);
     }
 
-    public function listarEventos(): array
+    public function listarAvisos(): array
     {
         $filtro = $_GET['filtro'] ?? 'todos';
 
-        return $this->servicio->listarEventos($filtro);
+        return $this->servicio->listarAvisos($filtro);
     }
 
     public function obtenerFiltroActual(): string
@@ -53,8 +53,8 @@ class EventoControlador
         return $_GET['filtro'] ?? 'todos';
     }
 
-    public function listarEventosHome(): array
+    public function listarAvisosHome(): array
     {
-        return $this->servicio->listarEventosHome();
+        return $this->servicio->listarAvisosHome();
     }
 }

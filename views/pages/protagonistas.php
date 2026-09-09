@@ -1,8 +1,4 @@
 <?php
-require_once __DIR__ . '/../../src/Controladores/AuthMiddleware.php';
-?>
-
-<?php
 $tituloPagina = "Protagonistas";
 
 require_once __DIR__ . '/../../src/Controladores/ProtagonistaController.php';
@@ -41,8 +37,8 @@ include __DIR__ . '/includes/menu_lateral.php';
             <h1 class="fw-bold mb-1">Protagonistas</h1>
             <p class="mb-0">Seleccioná un protagonista para ver su perfil completo.</p>
             </div>
-            <a href="/Educarama/views/pages/protagonistas_nomina.php" class="boton-primario px-4 py-2 fw-bold text-decoration-none">
-                <i class="me-2"></i>Ver nómina completa   
+            <a href="/Educarama/views/pages/alta_protagonista.php" class="boton-primario px-4 py-2 fw-bold text-decoration-none">
+                <i class="bi bi-plus-circle me-2"></i>Nuevo protagonista
             </a>
         </div>
 
@@ -53,7 +49,7 @@ include __DIR__ . '/includes/menu_lateral.php';
                 <?php foreach ($protagonistas as $protagonista): ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <a href="/Educarama/views/pages/perfil_protagonista.php?id=<?= $protagonista['id'] ?>" class="protagonista-card">
-                            <div class="protagonista-foto rama-<?= strtolower($protagonista['rama'] ?? '') ?>" >
+                            <div class="protagonista-foto">
                                 <i class="bi bi-person-fill"></i>
                             </div>
 
@@ -83,28 +79,14 @@ include __DIR__ . '/includes/menu_lateral.php';
 
                                 <span class="ver-perfil">Ver perfil</span>
                             </div>
-                            
 
                         </a>
-                        
                     </div>
-                  
                 <?php endforeach; ?>
             <?php else: ?>
                 <p>No hay protagonistas cargados.</p>
             <?php endif; ?>
-
-        </div>
-        <!-- BOTONES DE ACCIÓN -->
-        <div class="row g-3 mt-3">
-
-            <div class="col-12 col-md-4">
-                <a 
-                    href="gestionar_protagonistas.php" 
-                    class="boton-primario w-100 py-3 fw-bold text-decoration-none text-center d-block">
-                    <i class="bi bi-person-gear me-2"></i>Crear nuevo protagonista
-                    </a>
-            </div>
+            
         </div>
 
     </div>
