@@ -30,6 +30,15 @@ class RamaRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function obtenerPerfilDesdeUrl(): string
+    {
+        if (!isset($_GET['id'])) {
+            return null;
+        }
+
+        $id = intval($_GET['id']);
+        return $this->obtenerPerfil($id);
+    }
     public function crear(array $datos): void
     {
         $stmt = $this->conexion->prepare("

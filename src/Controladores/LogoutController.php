@@ -17,7 +17,7 @@ if (ini_get("session.use_cookies")) {
 // Finalmente, destruimos la sesión
 session_destroy();
 
-// Redirigimos al usuario a la pantalla de login (ajustá la ruta según tu entorno)
+// Redirigimos al usuario a la pantalla de login 
 header("Location: /Educarama/views/pages/login.php");
 exit;
 ?>

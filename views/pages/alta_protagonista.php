@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/../../src/Controladores/AuthMiddleware.php';
+?>
+
+<?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -86,7 +90,8 @@ $esEdicion = !empty($protagonista);
                 <div class="col-md-12 mb-3 mb-md-0">
                     <div class="tarjeta-blanca-borde p-4 h-100">
 
-                        <form method="POST">
+                        <!-- SE AGREGÓ enctype="multipart/form-data" -->
+                        <form method="POST" enctype="multipart/form-data">
                             <input 
                                 type="hidden" 
                                 name="id" 
@@ -230,6 +235,27 @@ $esEdicion = !empty($protagonista);
                                         <label class="form-check-label fw-bold" for="promesa">
                                             Tiene promesa scout
                                         </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- NUEVA SECCIÓN DE DOCUMENTACIÓN -->
+                            <hr>
+                            
+                            <h2 class="h4 texto-violeta fw-bold mb-3">Documentación Adjunta</h2>
+                            
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="documento" class="form-label fw-bold">Subir Documento (Opcional)</label>
+                                    <input 
+                                        type="file" 
+                                        class="form-control" 
+                                        id="documento" 
+                                        name="documento" 
+                                        accept=".pdf, image/jpeg, image/png"
+                                    >
+                                    <div class="form-text">
+                                        Formatos permitidos: PDF, JPG, PNG. Tamaño máximo recomendado: 5MB.
                                     </div>
                                 </div>
                             </div>

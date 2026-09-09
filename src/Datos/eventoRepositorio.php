@@ -1,6 +1,6 @@
 <?php
 
-class AvisoRepositorio
+class EventoRepositorio
 {
     private PDO $conexion;
 
@@ -18,9 +18,9 @@ class AvisoRepositorio
         ");
 
         $stmt->execute([':id' => $id]);
-        $aviso = $stmt->fetch(PDO::FETCH_ASSOC);
+        $evento = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $aviso ?: null;
+        return $evento ?: null;
     }
 
     public function listar(string $filtro = 'todos'): array
@@ -103,20 +103,23 @@ class AvisoRepositorio
         $stmt->execute([':id' => $id]);
     }
 
-    public function listarParaHome(): array
-    {
-        $stmt = $this->conexion->prepare("
-            SELECT *
-            FROM aviso
-            WHERE activo = 1
-              AND fecha_inicio <= CURDATE()
-              AND (fecha_fin IS NULL OR fecha_fin >= CURDATE())
-            ORDER BY fecha_inicio DESC
-            LIMIT 5
-        ");
+   public function listarEventosHome(): array
+{
+    $stmt = $this->conexion->prepare("
+        SELECT *
+        FROM aviso
+        WHERE activo = 1
+          AND (
+              fecha_inicio BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 15 DAY)
+              OR 
+              (fecha_fin IS NOT NULL AND fecha_fin BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 15 DAY))
+          )
+        ORDER BY fecha_inicio ASC
+        LIMIT 5
+    ");
 
-        $stmt->execute();
+    $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }

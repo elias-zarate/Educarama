@@ -14,6 +14,11 @@ class RamaService
         return $this->repositorio->listarTodo();
     }
 
+    public function obtenerPerfilDesdeUrl($id): ?array
+    {
+        return $this->repositorio->obtenerPorId($id);
+    }
+
     public function crearDesdeFormulario(array $post): void
     {
         $nombre = trim($post['nombre'] ?? '');

@@ -1,3 +1,5 @@
+// src/Controladores/RamaController.php
+
 <?php
 
 require_once __DIR__ . '/../Datos/Database.php';
@@ -42,6 +44,15 @@ class RamaController
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function obtenerPerfilDesdeUrl()
+    {
+        if (!isset($_GET['id'])) {
+            return null;
+        }
+
+        $id = intval($_GET['id']);
+        return $this->servicio->obtenerPerfil($id);
     }
 
     public function listarCategorias(): array

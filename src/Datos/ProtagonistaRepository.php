@@ -1,3 +1,5 @@
+// src/Datos/ProtagonistaRepository.php
+
 <?php
 
 class ProtagonistaRepository
@@ -13,9 +15,9 @@ class ProtagonistaRepository
     {
         $stmt = $this->conexion->prepare("
             INSERT INTO protagonista
-            (promesa, anio_ingreso, id_persona, id_rama, id_patrulla, id_usuario)
+            (promesa, anio_ingreso, id_persona, id_rama, id_patrulla)
             VALUES
-            (:promesa, :anio_ingreso, :id_persona, :id_rama, :id_patrulla, NULL)
+            (:promesa, :anio_ingreso, :id_persona, :id_rama, :id_patrulla)
         ");
 
         $stmt->execute([
@@ -29,7 +31,6 @@ class ProtagonistaRepository
 
     public function listarCards(): array
     {
-        // Eliminamos p.anio_ingreso porque no existe en la tabla protagonista
         $stmt = $this->conexion->prepare("
             SELECT 
                 p.id,
@@ -51,6 +52,30 @@ class ProtagonistaRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
+public function listarTodo(): array
+    {
+        $stmt = $this->conexion->prepare("
+            SELECT 
+                p.id,
+                p.promesa,
+                p.anio_ingreso,
+                per.nombre,
+                per.apellido,
+                per.fecha_nacimiento,
+                per.dni,
+                r.nombre AS rama,
+                pa.nombre AS patrulla
+            FROM protagonista p
+            INNER JOIN persona per ON p.id_persona = per.id
+            LEFT JOIN rama r ON p.id_rama = r.id
+            LEFT JOIN patrulla pa ON p.id_patrulla = pa.id
+            ORDER BY p.id DESC
+        ");
+        
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function obtenerPerfilPorId(int $id): ?array
     {
         $stmt = $this->conexion->prepare("
@@ -80,6 +105,8 @@ class ProtagonistaRepository
 
         return $protagonista ?: null;
     }
+
+    
 
     public function actualizar(int $idProtagonista, array $datos): void
 {

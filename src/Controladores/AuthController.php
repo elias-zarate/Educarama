@@ -1,5 +1,5 @@
 <?php
-
+// src/Controladores/AuthController.php
 require_once __DIR__ . '/../Datos/Database.php';
 require_once __DIR__ . '/../Datos/UsuarioRepository.php';
 require_once __DIR__ . '/../Servicios/LoginService.php';

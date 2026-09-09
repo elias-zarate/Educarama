@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/Database.php';
 
 class ProgresionRepository {
@@ -27,16 +26,23 @@ class ProgresionRepository {
         $stmt->execute([$idProtagonista, $idCompetencia, $codigoCompetencia, (int)$desarrollada]);
     }
 
-    public function otorgarInsignia(int $idProtagonista, int $idInsignia): void {
-        // En PHP sacamos la fecha actual formato MySQL (YYYY-MM-DD)
-        $fecha = date('Y-m-d');
-        
-        $stmt = $this->db->prepare("
-            INSERT INTO obtiene (id_protagonista, id_insignia, fecha)
-            VALUES (?, ?, ?)
-            ON DUPLICATE KEY UPDATE fecha = VALUES(fecha)
-        ");
-        $stmt->execute([$idProtagonista, $idInsignia, $fecha]);
+    public function contarCompetenciasPorCategoria(int $idCategoriaRama): int {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM competencia WHERE id_categoria_rama = ?");
+        $stmt->execute([$idCategoriaRama]);
+        return (int) $stmt->fetchColumn();
+    }
+
+    public function contarCompetenciasDesarrolladas(int $idProtagonista): int {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM desarrolla WHERE id_protagonista = ? AND competencia_desarrollada = 1");
+        $stmt->execute([$idProtagonista]);
+        return (int) $stmt->fetchColumn();
+    }
+
+    // --- NUEVA CONSULTA PARA ALERTAS ---
+    public function tieneInsignia(int $idProtagonista, int $idInsignia): bool {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM obtiene WHERE id_protagonista = ? AND id_insignia = ?");
+        $stmt->execute([$idProtagonista, $idInsignia]);
+        return (bool) $stmt->fetchColumn();
     }
 }
 ?>

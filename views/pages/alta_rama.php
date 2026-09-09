@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/../../src/Controladores/AuthMiddleware.php';
+?>
+<?php
 $tituloPagina = "Nueva Rama";
 
 require_once __DIR__ . '/../../src/Controladores/RamaController.php';
@@ -50,6 +53,29 @@ include __DIR__ . '/includes/menu_lateral.php';
         <?php endif; ?>
 
         <form method="POST" class="tarjeta-blanca-borde p-4">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Grupo</label>
+                <select name="id_grupo" class="form-select" required>
+                    <option value="">Seleccionar grupo</option>
+                    <?php foreach ($grupos as $grupo): ?>
+                        <option value="<?= $grupo['id'] ?>">
+                            <?= htmlspecialchars($grupo['nombre']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label fw-bold">Categoría de rama</label>
+                <select name="id_rama" class="form-select" required>
+                    <option value="">Seleccionar categoría</option>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria['id'] ?>">
+                            <?= htmlspecialchars($categoria['nombre']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
             <div class="mb-3">
                 <label class="form-label fw-bold">Nombre de la rama</label>
@@ -62,29 +88,9 @@ include __DIR__ . '/includes/menu_lateral.php';
                 >
             </div>
 
-            <div class="mb-3">
-                <label class="form-label fw-bold">Grupo</label>
-                <select name="id_grupo" class="form-select" required>
-                    <option value="">Seleccionar grupo</option>
-                    <?php foreach ($grupos as $grupo): ?>
-                        <option value="<?= $grupo['id'] ?>">
-                            <?= htmlspecialchars($grupo['nombre']) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
 
-            <div class="mb-3">
-                <label class="form-label fw-bold">Categoría de rama</label>
-                <select name="id_rama" class="form-select" required>
-                    <option value="">Seleccionar categoría</option>
-                    <?php foreach ($categorias as $categoria): ?>
-                        <option value="<?= $categoria['id'] ?>">
-                            <?= htmlspecialchars($categoria['nombre']) ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
+
+
 
             <div class="d-flex gap-2">
                 <button type="submit" class="boton-primario px-4 py-2 fw-bold">
