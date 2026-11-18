@@ -65,6 +65,7 @@ final class ProtagonistaController extends Controlador
             'ficha'            => $ficha,
             'seccion'          => $this->secciones->encabezado($idUsuario, $ficha->protagonista->idSeccion),
             'resumen'          => $this->progresion->resumen($idUsuario, $idProtagonista),
+            'insignias'        => $this->progresion->insigniasParaPerfil($idUsuario, $idProtagonista),
             'familiares'       => $this->familiares->listarPorProtagonista($idUsuario, $idProtagonista),
             'documentos'       => $this->documentos->listarPorProtagonista($idUsuario, $idProtagonista),
             'seccionesDestino' => $this->protagonistas->seccionesDestino($idUsuario, $idProtagonista),

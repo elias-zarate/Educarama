@@ -129,6 +129,51 @@ final class ProgresionService extends ServicioBase
     }
 
     /**
+     * Las insignias de la rama del protagonista, cada una con su fecha de
+     * entrega (o null si no la recibió), el elemento elegido en cada etapa
+     * lograda (solo Caminantes) y el número de etapa de cada insignia
+     * (para posicionarlas en el rompecabezas del perfil).
+     *
+     * @return array{insignias: InsigniaEnPantalla[], elementoPorEtapa: array<int, \Educarama\Model\Enum\Elemento>, numeroPorEtapa: array<int, int>, idRama: int}
+     */
+    public function insigniasParaPerfil(int $idUsuario, int $idProtagonista): array
+    {
+        $rama = $this->cargar($idUsuario, $idProtagonista, NivelRol::Ayudante);
+
+        $otorgadas = [];
+        foreach ($this->insigniasOtorgadas->listarPorProtagonista($idProtagonista) as $otorgada) {
+            $otorgadas[$otorgada->idInsignia] = $otorgada->fecha;
+        }
+
+        $insignias = array_map(
+            fn ($insignia) => new InsigniaEnPantalla($insignia, $otorgadas[$insignia->id] ?? null),
+            $this->insignias->listarParaRama($rama->id),
+        );
+
+        // En Caminantes la imagen de cada insignia de etapa sale del elemento
+        // elegido al lograr esa etapa (agua, tierra, fuego, aire).
+        $elementoPorEtapa = [];
+        foreach ($this->etapasLogradas->listarPorProtagonista($idProtagonista) as $lograda) {
+            if ($lograda->elemento !== null) {
+                $elementoPorEtapa[$lograda->idEtapa] = $lograda->elemento;
+            }
+        }
+
+        // Mapa id de etapa → número (1, 2, 3, 4) para posicionar en el rompecabezas.
+        $numeroPorEtapa = [];
+        foreach ($this->etapas->listarPorRama($rama->id) as $etapa) {
+            $numeroPorEtapa[$etapa->id] = (int) $etapa->numero;
+        }
+
+        return [
+            'insignias'       => $insignias,
+            'elementoPorEtapa' => $elementoPorEtapa,
+            'numeroPorEtapa'  => $numeroPorEtapa,
+            'idRama'          => $rama->id,
+        ];
+    }
+
+    /**
      * Todo lo que muestra la pantalla de competencias (Ayudante en adelante):
      * el resumen y, por cada área de la rama, todas sus competencias con su
      * estado (sin fila = pendiente) y sus acciones con "cumplida sí/no".

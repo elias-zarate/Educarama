@@ -1039,3 +1039,162 @@ h6 {
   height: 100%;
   object-fit: contain;
 }
+
+/* ============================================================ Stat tiles del inicio */
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 0.5rem;
+  border-radius: 0.75rem;
+  background: var(--violeta-fondo);
+  border: 1px solid var(--gris-linea);
+  text-align: center;
+  transition: box-shadow 0.15s;
+}
+
+.stat-tile:hover {
+  box-shadow: 0 4px 12px rgba(75, 18, 120, 0.1);
+}
+
+.stat-tile-icono {
+  font-size: 1.5rem;
+  color: var(--violeta);
+}
+
+.stat-tile-numero {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--violeta);
+  line-height: 1;
+}
+
+.stat-tile-label {
+  font-family: var(--fuente-condensada);
+  font-size: 0.8rem;
+  color: var(--texto-tenue);
+  font-weight: 400;
+}
+
+/* ============================================================ Rompecabezas de insignias del perfil */
+.puzzle-insignias {
+  --pieza: 160px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.puzzle-pieza {
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.puzzle-pieza img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.puzzle-pieza.pendiente {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+
+.puzzle-pieza.entregada {
+  filter: none;
+  opacity: 1;
+}
+
+/* LyL: grilla 2×2, orden 1/2 arriba, 4/3 abajo */
+.puzzle-lobatos {
+  display: grid;
+  grid-template-columns: repeat(2, var(--pieza));
+  grid-template-rows: repeat(2, var(--pieza));
+  gap: 0;
+  width: fit-content;
+}
+.puzzle-lobatos .pieza-1 { grid-area: 1 / 1; }
+.puzzle-lobatos .pieza-2 { grid-area: 1 / 2; }
+.puzzle-lobatos .pieza-4 { grid-area: 2 / 1; }
+.puzzle-lobatos .pieza-3 { grid-area: 2 / 2; }
+
+/* Scouts: rombo — Travesía arriba, Rumbo izq, Pistas der, Senda abajo */
+.puzzle-scouts {
+  width: calc(var(--pieza) * 2);
+  height: calc(var(--pieza) * 2);
+}
+
+.puzzle-scouts .puzzle-pieza {
+  position: absolute;
+  width: var(--pieza);
+  height: var(--pieza);
+}
+
+.puzzle-scouts .pieza-4 { top: 0; left: 50%; transform: translateX(-50%); }
+.puzzle-scouts .pieza-3 { top: 50%; left: 0; transform: translateY(-50%); }
+.puzzle-scouts .pieza-1 { top: 50%; right: 0; transform: translateY(-50%); }
+.puzzle-scouts .pieza-2 { bottom: 0; left: 50%; transform: translateX(-50%); }
+
+/* Caminantes: rombo — Tierra arriba, Agua izq, Aire der, Fuego abajo */
+.puzzle-caminantes {
+  width: calc(var(--pieza) * 2);
+  height: calc(var(--pieza) * 2);
+}
+
+.puzzle-caminantes .puzzle-pieza {
+  position: absolute;
+  width: var(--pieza);
+  height: var(--pieza);
+}
+
+.puzzle-caminantes .pieza-tierra { top: 0; left: 50%; transform: translateX(-50%); }
+.puzzle-caminantes .pieza-agua   { top: 50%; left: 0; transform: translateY(-50%); }
+.puzzle-caminantes .pieza-aire   { top: 50%; right: 0; transform: translateY(-50%); }
+.puzzle-caminantes .pieza-fuego  { bottom: 0; left: 50%; transform: translateX(-50%); }
+
+/* Rovers: apiladas 3/2/1 (de arriba abajo).
+   Las imágenes son rectangulares: la altura se ajusta sola. */
+.puzzle-rovers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+
+.puzzle-rovers .puzzle-pieza {
+  width: var(--pieza);
+  line-height: 0;
+}
+
+.puzzle-rovers .puzzle-pieza img {
+  width: 100%;
+  height: auto;
+}
+
+.puzzle-rovers .pieza-3 { order: 1; }
+.puzzle-rovers .pieza-2 { order: 2; }
+.puzzle-rovers .pieza-1 { order: 3; }
+
+/* ============================================================ Nav del protagonista (pills) */
+.nav-protagonista {
+  border-bottom: 1px solid var(--gris-linea);
+  padding-bottom: 0.5rem;
+}
+
+.nav-protagonista .nav-link {
+  color: var(--texto-tenue);
+  font-weight: 500;
+  border-radius: 2rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
+
+.nav-protagonista .nav-link:hover {
+  color: var(--violeta);
+  background: var(--violeta-fondo);
+}
+
+.nav-protagonista .nav-link.active {
+  background: var(--violeta);
+  color: #fff;
+}
