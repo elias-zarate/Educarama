@@ -26,6 +26,7 @@ final class InicioController extends Controlador
         $grupos = array_map(fn ($g) => [
             'grupo'    => $g,
             'proximos' => $this->eventos->proximosPorGrupo($usuario->id, (int) $g->grupo->id),
+            'conteo'   => $this->secciones->conteoGrupo((int) $g->grupo->id),
         ], $this->secciones->misGrupos($usuario->id));
         
         return Respuesta::pagina([

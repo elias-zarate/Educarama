@@ -27,6 +27,9 @@ $edad = Vista::edad($persona->fechaNacimiento);
 $equipo = $seccion->pequenioEquipo();
 $nombre = $persona->nombre . ' ' . $persona->apellido;
 
+$paginaActual = 'perfil';
+$idProtagonista = $id;
+
 $tituloPagina = $nombre;
 $claseRama = Vista::claseRama($seccion->rama->id);
 require __DIR__ . '/../includes/cabecera.php';
@@ -68,6 +71,8 @@ require __DIR__ . '/../includes/cabecera.php';
         </div>
     <?php endif; ?>
 </section>
+
+<?php require __DIR__ . '/../includes/nav_protagonista.php'; ?>
 
 <ul class="nav nav-tabs tabs-inst mb-4" role="tablist">
     <li class="nav-item" role="presentation">
@@ -155,12 +160,72 @@ require __DIR__ . '/../includes/cabecera.php';
                         </div>
                     <?php endif; ?>
 
-                    <div class="d-flex flex-wrap gap-2">
+                    <?php
+                    $elementoPorEtapa = $datos['insignias']['elementoPorEtapa'];
+                    $numeroPorEtapa = $datos['insignias']['numeroPorEtapa'];
+                    $idRamaPerfil = $datos['insignias']['idRama'];
+                    $todasInsignias = $datos['insignias']['insignias'];
+
+                    $claseRompecabezas = match ($idRamaPerfil) {
+                        1 => 'puzzle-lobatos',
+                        2 => 'puzzle-scouts',
+                        3 => 'puzzle-caminantes',
+                        4 => 'puzzle-rovers',
+                        default => '',
+                    };
+
+                    if ($idRamaPerfil === 3) {
+                        // Caminantes: posición fija por elemento, no por etapa.
+                        // Tierra arriba, Agua izquierda, Aire derecha, Fuego abajo.
+                        $insigPorElemento = [];
+                        foreach ($todasInsignias as $i) {
+                            if ($i->insignia->idEtapa === null) {
+                                continue;
+                            }
+                            $elem = $elementoPorEtapa[$i->insignia->idEtapa] ?? null;
+                            if ($elem !== null) {
+                                $insigPorElemento[$elem->value] = $i;
+                            }
+                        }
+                        $piezas = [];
+                        foreach (['tierra', 'agua', 'aire', 'fuego'] as $elem) {
+                            $img = Vista::imagenInsignia("caminantes-$elem.png");
+                            $ins = $insigPorElemento[$elem] ?? null;
+                            $otorgada = $ins !== null && $ins->otorgada();
+                            $titulo = $ins !== null ? $ins->insignia->titulo : ucfirst($elem);
+                            $piezas[$elem] = ['otorgada' => $otorgada, 'imagen' => $img, 'titulo' => $titulo];
+                        }
+                    } else {
+                        // LyL, Scouts y Rovers: posición por número de etapa.
+                        $piezas = [];
+                        foreach ($todasInsignias as $i) {
+                            if ($i->insignia->idEtapa === null || $i->insignia->imagen === null) {
+                                continue;
+                            }
+                            $num = $numeroPorEtapa[$i->insignia->idEtapa] ?? 0;
+                            $piezas[$num] = ['otorgada' => $i->otorgada(), 'imagen' => Vista::imagenInsignia($i->insignia->imagen), 'titulo' => $i->insignia->titulo];
+                        }
+                    }
+                    ?>
+                    <?php if ($piezas !== []): ?>
+                        <div class="puzzle-insignias <?= $claseRompecabezas ?> mt-3 mb-3">
+                            <?php foreach ($piezas as $clave => $iv): ?>
+                                <div class="puzzle-pieza pieza-<?= e((string) $clave) ?> <?= $iv['otorgada'] ? 'entregada' : 'pendiente' ?>" title="<?= e($iv['titulo'] . ($iv['otorgada'] ? ' ✓' : '')) ?>">
+                                    <img src="<?= e($iv['imagen']) ?>" alt="<?= e($iv['titulo']) ?>">
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
                         <a class="boton-primario px-3 py-2 fw-bold text-decoration-none" href="<?= e(url('views/pages/gestionar_competencias.php?id=' . $id)) ?>">
                             <i class="bi bi-list-check me-1" aria-hidden="true"></i>Competencias
                         </a>
                         <a class="btn btn-outline-secondary" href="<?= e(url('views/pages/progresion.php?id=' . $id)) ?>">
-                            <i class="bi bi-award me-1" aria-hidden="true"></i>Etapas e insignias
+                            <i class="bi bi-layers me-1" aria-hidden="true"></i>Etapas
+                        </a>
+                        <a class="btn btn-outline-secondary" href="<?= e(url('views/pages/progresion.php?id=' . $id . '#panel-insignias')) ?>">
+                            <i class="bi bi-award me-1" aria-hidden="true"></i>Insignias
                         </a>
                     </div>
                 </section>

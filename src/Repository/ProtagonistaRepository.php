@@ -143,6 +143,18 @@ final class ProtagonistaRepository extends RepositorioBase
         );
     }
 
+    /** Cantidad total de protagonistas en las secciones de un grupo. */
+    public function contarPorGrupo(int $idGrupo): int
+    {
+        $stmt = $this->conexion->prepare(
+            'SELECT COUNT(*) FROM protagonista p
+               JOIN seccion s ON s.id = p.id_seccion
+              WHERE s.id_grupo = ?'
+        );
+        $stmt->execute([$idGrupo]);
+        return (int) $stmt->fetchColumn();
+    }
+
     public function insertar(Protagonista $protagonista): int
     {
         $protagonista->id = $this->insertarFila(

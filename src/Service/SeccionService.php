@@ -173,6 +173,18 @@ final class SeccionService extends ServicioBase
         return new ConteoSeccion(count($protagonistas), $lista, $sinPatrulla);
     }
 
+    /**
+     * Conteo rápido de un grupo: protagonistas y patrullas totales.
+     * Para las tarjetas de estadísticas del inicio; no carga filas.
+     */
+    public function conteoGrupo(int $idGrupo): array
+    {
+        return [
+            'protagonistas' => $this->protagonistas->contarPorGrupo($idGrupo),
+            'patrullas'     => $this->patrullas->contarPorGrupo($idGrupo),
+        ];
+    }
+
     // -----------------------------------------------------------------
 
     private function armar(Seccion $seccion, Grupo $grupo, ?NivelRol $nivel): SeccionEnPantalla

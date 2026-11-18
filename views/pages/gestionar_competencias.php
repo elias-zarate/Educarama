@@ -37,6 +37,9 @@ $textoAvanzar = static fn (?EstadoProgresion $estado): ?string => match ($estado
     EstadoProgresion::Desarrollada => null,
 };
 
+$paginaActual = 'competencias';
+$idProtagonista = $id;
+
 $tituloPagina = 'Competencias de ' . $nombre;
 $claseRama = Vista::claseRama($rama->id);
 $scriptsPagina = ['public/js/competencias.js'];
@@ -47,10 +50,9 @@ require __DIR__ . '/../includes/cabecera.php';
         <h1 class="fw-bold mb-1"><?= e($nombre) ?></h1>
         <p class="mb-0"><?= e($termino) ?> · <?= e($rama->titulo) ?></p>
     </div>
-    <a href="<?= e(url('views/pages/perfil_protagonista.php?id=' . $id)) ?>" class="boton-primario px-4 py-2 fw-bold text-decoration-none">
-        <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>Volver al perfil
-    </a>
 </section>
+
+<?php require __DIR__ . '/../includes/nav_protagonista.php'; ?>
 
 <div id="competencias"
      data-id-protagonista="<?= $id ?>"

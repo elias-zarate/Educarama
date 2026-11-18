@@ -32,6 +32,9 @@ $editable = $pantalla->puedeEditar;
 /** data-datos de un botón: siempre con el protagonista. */
 $datosBoton = static fn (array $extra): string => e(json_encode(['id_protagonista' => $id] + $extra));
 
+$paginaActual = 'etapas';
+$idProtagonista = $id;
+
 $tituloPagina = 'Etapas e insignias de ' . $nombre;
 $claseRama = Vista::claseRama($resumen->rama->id);
 require __DIR__ . '/../includes/cabecera.php';
@@ -41,10 +44,9 @@ require __DIR__ . '/../includes/cabecera.php';
         <h1 class="fw-bold mb-1"><?= e($nombre) ?></h1>
         <p class="mb-0">Etapas e insignias · <?= e($resumen->rama->titulo) ?></p>
     </div>
-    <a href="<?= e(url('views/pages/perfil_protagonista.php?id=' . $id)) ?>" class="boton-primario px-4 py-2 fw-bold text-decoration-none">
-        <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>Volver al perfil
-    </a>
 </section>
+
+<?php require __DIR__ . '/../includes/nav_protagonista.php'; ?>
 
 <!-- ================================================================ PESTAÑAS -->
 <ul class="nav nav-tabs mb-4" role="tablist">
