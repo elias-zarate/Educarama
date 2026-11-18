@@ -36,6 +36,18 @@ final class PatrullaRepository extends RepositorioBase
         );
     }
 
+    /** Cantidad total de patrullas en las secciones de un grupo. */
+    public function contarPorGrupo(int $idGrupo): int
+    {
+        $stmt = $this->conexion->prepare(
+            'SELECT COUNT(*) FROM patrulla pa
+               JOIN seccion s ON s.id = pa.id_seccion
+              WHERE s.id_grupo = ?'
+        );
+        $stmt->execute([$idGrupo]);
+        return (int) $stmt->fetchColumn();
+    }
+
     public function insertar(Patrulla $patrulla): int
     {
         $patrulla->id = $this->insertarFila(

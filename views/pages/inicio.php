@@ -81,6 +81,38 @@ require __DIR__ . '/../includes/cabecera.php';
             </a>
         </div>
 
+        <?php $conteo = $fila['conteo']; ?>
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="stat-tile">
+                    <i class="bi bi-people stat-tile-icono" aria-hidden="true"></i>
+                    <span class="stat-tile-numero"><?= $conteo['protagonistas'] ?></span>
+                    <span class="stat-tile-label">Protagonistas</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-tile">
+                    <i class="bi bi-flag stat-tile-icono" aria-hidden="true"></i>
+                    <span class="stat-tile-numero"><?= $conteo['patrullas'] ?></span>
+                    <span class="stat-tile-label">Patrullas</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-tile">
+                    <i class="bi bi-diagram-3 stat-tile-icono" aria-hidden="true"></i>
+                    <span class="stat-tile-numero"><?= count($grupoPantalla->secciones) ?></span>
+                    <span class="stat-tile-label">Secciones</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-tile">
+                    <i class="bi bi-calendar-event stat-tile-icono" aria-hidden="true"></i>
+                    <span class="stat-tile-numero"><?= count($fila['proximos']) ?></span>
+                    <span class="stat-tile-label">Próx. eventos</span>
+                </div>
+            </div>
+        </div>
+
         <div class="row g-3 mb-4">
             <?php foreach ($grupoPantalla->secciones as $seccion): ?>
                 <?php
@@ -109,6 +141,28 @@ require __DIR__ . '/../includes/cabecera.php';
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <?php
+        // Acciones rápidas: si tiene al menos una sección donde puede editar,
+        // mostrar los links para crear protagonista y patrulla.
+        $seccionEditable = null;
+        foreach ($grupoPantalla->secciones as $sec) {
+            if ($sec->puedeEditar()) {
+                $seccionEditable = $sec;
+                break;
+            }
+        }
+        ?>
+        <?php if ($seccionEditable !== null): ?>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+                <a href="<?= e(url('views/pages/protagonista_form.php?id_seccion=' . $seccionEditable->seccion->id)) ?>" class="boton-primario px-3 py-2 fw-bold text-decoration-none">
+                    <i class="bi bi-person-plus me-1" aria-hidden="true"></i>Nuevo protagonista
+                </a>
+                <a href="<?= e(url('views/pages/protagonistas.php')) ?>" class="btn btn-outline-secondary">
+                    <i class="bi bi-list-ul me-1" aria-hidden="true"></i>Ver nómina
+                </a>
+            </div>
+        <?php endif; ?>
 
         <h3 class="h5 texto-violeta fw-bold">Próximos eventos</h3>
         <?php if ($fila['proximos'] === []): ?>
